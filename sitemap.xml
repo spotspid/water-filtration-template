@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- TEMPLATE: Update all {{DOMAIN}} values and regenerate city URLs per your service-area pages. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://{{DOMAIN}}/index.html</loc><lastmod>2026-07-10</lastmod><priority>1.0</priority></url>
+  <url><loc>https://{{DOMAIN}}/services.html</loc><lastmod>2026-07-10</lastmod><priority>0.7</priority></url>
+  <url><loc>https://{{DOMAIN}}/service-area.html</loc><lastmod>2026-07-10</lastmod><priority>0.7</priority></url>
+  <url><loc>https://{{DOMAIN}}/about.html</loc><lastmod>2026-07-10</lastmod><priority>0.7</priority></url>
+  <url><loc>https://{{DOMAIN}}/free-water-report.html</loc><lastmod>2026-07-10</lastmod><priority>0.7</priority></url>
+  <url><loc>https://{{DOMAIN}}/privacy-policy.html</loc><lastmod>2026-07-10</lastmod><priority>0.7</priority></url>
+  <url><loc>https://{{DOMAIN}}/terms-of-service.html</loc><lastmod>2026-07-10</lastmod><priority>0.7</priority></url>
+  <url><loc>https://{{DOMAIN}}/services/whole-home-filtration.html</loc><lastmod>2026-07-10</lastmod><priority>0.8</priority></url>
+  <url><loc>https://{{DOMAIN}}/services/reverse-osmosis.html</loc><lastmod>2026-07-10</lastmod><priority>0.8</priority></url>
+  <url><loc>https://{{DOMAIN}}/services/well-water-treatment.html</loc><lastmod>2026-07-10</lastmod><priority>0.8</priority></url>
+  <!-- CITY URL: add one <url> block per service-area city page -->
+  <!-- CITY URL: add one <url> block per service-area city page -->
+  <!-- CITY URL: add one <url> block per service-area city page -->
+  <!-- CITY URL: add one <url> block per service-area city page -->
+  <!-- CITY URL: add one <url> block per service-area city page -->
+  <!-- CITY URL: add one <url> block per service-area city page -->
+  <!-- CITY URL: add one <url> block per service-area city page -->
+  <!-- CITY URL: add one <url> block per service-area city page -->
+  <!-- CITY URL: add one <url> block per service-area city page -->
+  <!-- CITY URL: add one <url> block per service-area city page -->
+  <!-- CITY URL: add one <url> block per service-area city page -->
+  <!-- CITY URL: add one <url> block per service-area city page -->
+  <!-- CITY URL: add one <url> block per service-area city page -->
+  <!-- CITY URL: add one <url> block per service-area city page -->
+  <!-- CITY URL: add one <url> block per service-area city page -->
+  <!-- CITY URL: add one <url> block per service-area city page -->
+  <!-- CITY URL: add one <url> block per service-area city page -->
+  <!-- CITY URL: add one <url> block per service-area city page -->
+</urlset>
