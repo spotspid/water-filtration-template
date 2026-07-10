@@ -29,6 +29,7 @@ Stripped from Michigan Water Pros (michiganwaterpros.com) on 2026-07-10.
 | {{COLOR_PRIMARY}} | Primary brand color hex (source: #1C3651 navy) |
 | {{COLOR_ACCENT}} | Accent color hex (source: #2C819B teal) |
 | {{COLOR_CTA}} | CTA / alert color hex (source: #8C2F2F maroon) |
+| {{COLOR_CTA_HOVER}} | Darkened CTA for btn--primary:hover (typically 15-20% darker than CTA) |
 | {{COLOR_LIGHT_FILL}} | Light section fill (source: #DFF7FC sky) |
 | {{COLOR_BG}} | Page background / mist (source: #F2F8FA) |
 | {{COLOR_TEXT}} | Body text color (source: #16222E ink) |
@@ -74,6 +75,10 @@ Both legal pages must EXCLUDE the chat widget per placement rule above.
 - sitemap.xml -- update {{DOMAIN}} and regenerate city URLs per your service-area pages
 - robots.txt
 - images/ -- place client image files here (see images/README.md)
+
+## Known Judgment Calls (review at build time)
+
+- index.html "why your water" section (lines ~281-283): contains three Michigan-specific problem cards referencing "Michigan's limestone geology", "Michigan is a national PFAS hotspot / automotive corridor", and chlorine from municipal treatment. These survived the strip because the third card is generic but the first two are MWP-geography. When building for a non-Michigan market, rewrite those two cards with local water quality context before deploy.
 
 ## Water Filtration Vertical Rules
 
