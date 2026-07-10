@@ -156,6 +156,9 @@ footer a:hover{color:#fff}
 .prose p{margin-bottom:16px;color:var(--color-text)}
 .prose ul{margin:0 0 18px 20px}
 .prose li{margin-bottom:8px}
+.about-intro{display:flex;gap:40px;align-items:flex-start}
+.about-photo{flex:none;width:300px}
+.about-copy{flex:1}
 .callout{background:var(--color-light-fill);border-left:4px solid var(--color-accent);border-radius:10px;padding:20px 24px;margin:24px 0}
 .callout b{font-family:var(--font-heading);color:var(--color-primary)}
 .faq{max-width:820px;margin:0 auto}
@@ -180,6 +183,8 @@ footer a:hover{color:#fff}
   .hero-in{grid-template-columns:1fr;gap:36px;padding:54px 0 64px}
   .hero h1{font-size:2.4rem}
   .pgrid,.scards,.steps,.rgrid,.media-grid{grid-template-columns:1fr}
+  .about-intro{flex-direction:column}
+  .about-photo{width:100%;max-width:320px}
   .fgrid{grid-template-columns:1fr 1fr}
   .formwrap{grid-template-columns:1fr;gap:32px}
   .burger{display:flex}
@@ -236,21 +241,24 @@ footer a:hover{color:#fff}
 </div></header>
 <section class="phero"><div class="wrap">
   <div class="crumbs"><a href="index.html">Home</a> / About</div>
-  <h1>We're the honest-pricing water company for {{SERVICE_AREA_LABEL}}.</h1>
-  <p>Same premium equipment as the brand-name guys. None of the five-figure markup, the in-home sales theater, or the pressure.</p>
+  <h1>Meet {{FOUNDER_FIRST_NAME}}</h1>
+  <p>Founder, {{COMPANY_NAME}}</p>
 </div></section>
-<section class="band"><div class="wrap"><div class="prose">
-  <div style="border-radius:16px;overflow:hidden;box-shadow:0 24px 60px -30px rgba(28,54,81,.55);margin:8px 0 10px"><!-- IMAGE PLACEHOLDER: Owner or team headshot. Replace with actual photo. Remove if no headshot available. --><img src="images/owner-headshot.webp" loading="lazy" alt="{{COMPANY_NAME}} owner" alt="The {{COMPANY_NAME}} team" style="width:100%;display:block"></div>
-  <div style="margin-bottom:28px"></div>
-  <h2>Why we started this</h2>
-  <p>Buying a water system in {{SERVICE_AREA_LABEL}} usually means a salesman in your living room for three hours, a "consultation," and a quote that lands somewhere between $5,000 and $12,000 for equipment that doesn't cost anywhere near that. We thought that was backwards.</p>
-  <p>So we built the opposite. We show our price up front. We don't send anyone to pitch you in your home. We pull the public data on your water, recommend exactly what your home needs, and install it, usually for around {{FLAGSHIP_PRICE}} all-in. The savings don't come from cheaper parts. They come from cutting out the bloated way water systems are normally sold.</p>
-  <h2>Same factory. Better media. Leaner model.</h2>
-  <p>Our systems come from the same manufacturers that supply the brand-name guys. The difference is what goes inside: we refuse to cheap out on the carbon and resin, and we use a ceramic disc valve that outlasts the plastic ones the competition relies on. Premium components, honest price. That's the whole story, and it's true.</p>
-  <h2>Local, licensed, and accountable</h2>
-  <p>Every install is done by a licensed Michigan installer, right here in {{SERVICE_AREA_LABEL}} across Wayne and Oakland counties. We're insured, our equipment is NSF-certified, and you don't pay until the job is done and you're happy. No deposit to get started.</p>
-  <div class="callout"><b>How we compete:</b> on honest pricing and genuine service, period. We don't fake reviews, we don't play games to game search rankings, and we don't badmouth competitors by name. In a professional market like ours, a clean reputation is the most valuable thing we own.</div>
-</div></div></section>
+<section class="band"><div class="wrap">
+  <div class="about-intro">
+    <div class="about-photo"><!-- IMAGE PLACEHOLDER: Owner or team headshot. Replace with actual photo. Remove if no headshot available. --><img src="images/owner-headshot.webp" loading="lazy" alt="{{FOUNDER_FIRST_NAME}}, founder of {{COMPANY_NAME}}" style="width:100%;border-radius:16px;box-shadow:0 24px 60px -30px rgba(28,54,81,.55);display:block"></div>
+    <div class="about-copy prose">
+      <h2>Why we started this</h2>
+      <p>Buying a water system in {{SERVICE_AREA_LABEL}} usually means a salesman in your living room for three hours, a "consultation," and a quote that lands somewhere between $5,000 and $12,000 for equipment that doesn't cost anywhere near that. We thought that was backwards.</p>
+      <p>So we built the opposite. We show our price up front. We don't send anyone to pitch you in your home. We pull the public data on your water, recommend exactly what your home needs, and install it, usually for around {{FLAGSHIP_PRICE}} all-in. The savings don't come from cheaper parts. They come from cutting out the bloated way water systems are normally sold.</p>
+      <h2>Same factory. Better media. Leaner model.</h2>
+      <p>Our systems come from the same manufacturers that supply the brand-name guys. The difference is what goes inside: we refuse to cheap out on the carbon and resin, and we use a ceramic disc valve that outlasts the plastic ones the competition relies on. Premium components, honest price. That's the whole story, and it's true.</p>
+      <h2>Local, licensed, and accountable</h2>
+      <p>Every install is done by a {{INSTALLER_CREDENTIAL_LINE}}, right here in {{SERVICE_AREA_LABEL}}. We're insured, our equipment is NSF-certified, and you don't pay until the job is done and you're happy. No deposit to get started.</p>
+      <div class="callout"><b>How we compete:</b> on honest pricing and genuine service, period. We don't fake reviews, we don't play games to game search rankings, and we don't badmouth competitors by name. In a professional market like ours, a clean reputation is the most valuable thing we own.</div>
+    </div>
+  </div>
+</div></section>
 <footer><div class="wrap">
   <div class="fgrid">
     <div><img class="logo-foot" src="images/logo-footer.webp" alt="{{COMPANY_NAME}}" alt="{{COMPANY_NAME}}" style="background:#fff;border-radius:10px;padding:10px">

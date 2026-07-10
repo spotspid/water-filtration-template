@@ -17,6 +17,7 @@ Stripped from Michigan Water Pros (michiganwaterpros.com) on 2026-07-10.
 | {{SERVICE_AREA_LABEL}} | Short service area label (e.g. "Metro Detroit") |
 | {{FLAGSHIP_PRICE}} | All-in installed price (e.g. "$2,999") |
 | {{FINANCING_LINE}} | Financing call-out line (e.g. "from $265/mo, no credit check") |
+| {{FOUNDER_FIRST_NAME}} | Owner/founder first name for the About page H1 (e.g. "Mike") |
 | {{ABOUT_COPY}} | About section paragraphs (2-4 sentences, owner voice) |
 | {{GHL_FORM_ID}} | GoHighLevel form ID |
 | {{CHAT_WIDGET_ID}} | GoHighLevel chat widget ID |
