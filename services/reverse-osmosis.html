@@ -21,7 +21,7 @@
 {"@context":"https://schema.org","@type":"HVACBusiness","name":"{{COMPANY_NAME}}",
 "image":"https://{{DOMAIN}}/assets/logo-full.png","@id":"https://{{DOMAIN}}","url":"https://{{DOMAIN}}",
 "telephone":"+1{{PHONE_TEL}}","priceRange":"$$",
-"address":{"@type":"PostalAddress","streetAddress":"{{STREET_ADDRESS}}","addressLocality":"{{CITY}}","addressRegion":"{{STATE}}","postalCode":"{{ZIP}}","addressCountry":"US"},
+"address":{"@type":"PostalAddress","addressLocality":"{{CITY}}","addressRegion":"{{STATE}}","addressCountry":"US"},
 "areaServed": "<!-- AREA_SERVED: replace with your city list -->",
 "description":"Whole-home water filtration, softening, and reverse-osmosis drinking water across {{SERVICE_AREA_LABEL}}. Transparent pricing, local install, no in-home sales pitch.",
 "knowsAbout":["water softening","water filtration","reverse osmosis","well water treatment"]}
@@ -272,7 +272,7 @@ footer a:hover{color:#fff}
   <div class="fgrid">
     <div><img class="logo-foot" src="images/logo-footer.webp" alt="{{COMPANY_NAME}}" alt="{{COMPANY_NAME}}" style="background:#fff;border-radius:10px;padding:10px">
       <p class="fabout">Whole-home water filtration, softening, and RO drinking water across {{SERVICE_AREA_LABEL}}. Transparent pricing, local install, no in-home sales pitch.</p>
-      <p class="faddr">{{STREET_ADDRESS}}<br>{{CITY}}, {{STATE}} {{ZIP}}</p>
+      <p class="faddr">Serving {{SERVICE_AREA_LABEL}}, {{STATE}}</p>
       <p style="margin-top:12px"><a href="tel:+1{{PHONE_TEL}}" style="color:#fff;font-family:var(--font-heading);font-weight:600">{{PHONE_DISPLAY}}</a></p>
       <p><a href="mailto:contact@{{DOMAIN}}" style="color:#9fb6c4">contact@{{DOMAIN}}</a></p>
     </div>

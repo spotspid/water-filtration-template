@@ -11,10 +11,8 @@ Stripped from Michigan Water Pros (michiganwaterpros.com) on 2026-07-10.
 | {{PHONE_DISPLAY}} | Display format phone (e.g. "(248) 555-0100") |
 | {{PHONE_TEL}} | E.164 digits only, no +1 (e.g. "2485550100") |
 | {{EMAIL}} | Primary contact email |
-| {{STREET_ADDRESS}} | Street address only |
 | {{CITY}} | City of primary office |
 | {{STATE}} | State abbreviation |
-| {{ZIP}} | ZIP code |
 | {{DOMAIN}} | Domain without protocol (e.g. "yourdomain.com") |
 | {{SERVICE_AREA_LABEL}} | Short service area label (e.g. "Metro Detroit") |
 | {{FLAGSHIP_PRICE}} | All-in installed price (e.g. "$2,999") |
@@ -38,6 +36,12 @@ Stripped from Michigan Water Pros (michiganwaterpros.com) on 2026-07-10.
 | {{FONT_HEADING}} | Heading font name (source: Poppins) |
 | {{FONT_BODY}} | Body font name (source: Inter) |
 | {{INSTALLER_CREDENTIAL_LINE}} | Credential line (e.g. "licensed Michigan installer") |
+
+## Service-Area Business (pipeline standard)
+
+Sites built from this template are service-area businesses with no published street address. Schema uses PostalAddress with addressLocality and addressRegion only. Footer reads "Serving {{SERVICE_AREA_LABEL}}, {{STATE}}". There is no {{STREET_ADDRESS}} or {{ZIP}} token.
+
+If a client ever verifies their GBP at a physical address (shop, showroom, warehouse), add the address back site-wide to match GBP exactly: restore streetAddress and postalCode to every schema block and update the footer. GBP and the site must agree on address presence -- either both have it or neither does.
 
 ## A2P Opt-In Path
 
