@@ -50,7 +50,7 @@ img{max-width:100%}
 .btn--ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.4)}
 .btn--ghost:hover{border-color:#fff;background:rgba(255,255,255,.08)}
 .btn--lg{padding:17px 32px;font-size:1.02rem}
-header.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--color-border)}
+header.nav{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--color-border);box-shadow:0 2px 8px rgba(28,54,81,.08)}
 .nav-in{position:relative}
 .nav-in{display:flex;align-items:center;justify-content:space-between;height:80px}
 .brand{display:flex;align-items:center}
@@ -236,10 +236,10 @@ footer a:hover{color:#fff}
 </style></head><body>
 <!-- OPTIONAL PAGE: Well water treatment. Include only if client serves well water customers. --><header class="nav"><div class="wrap nav-in">
   <a class="brand" href="../index.html" aria-label="{{COMPANY_NAME}} home"><img class="logo-mark" src="images/logo.webp" alt="{{COMPANY_NAME}} logo" alt="{{COMPANY_NAME}} logo"></a>
-  <nav class="nav-links"><a class="lnk" href="../services.html">Services</a><a class="lnk" href="../service-area.html">Service Area</a><a class="lnk" href="../about.html">About</a><a class="lnk" href="../index.html#how">How It Works</a></nav>
+  <nav class="nav-links"><a class="lnk" href="../index.html">Home</a><a class="lnk" href="../services.html">Services</a><a class="lnk" href="../service-area.html">Service Area</a><a class="lnk" href="../about.html">About</a><a class="lnk" href="../index.html#how">How It Works</a></nav>
   <div class="nav-cta">
     <a class="nav-phone" href="tel:+1{{PHONE_TEL}}">{{PHONE_DISPLAY}}</a>
-    <a class="btn btn--primary" href="../free-water-report.html">Free Water Report</a>
+    <a class="btn btn--primary" href="../water-assessment.html">Free Water Assessment</a>
     <button class="burger" aria-label="Menu" aria-expanded="false" onclick="var h=this.closest('header');h.classList.toggle('menu-open');this.setAttribute('aria-expanded',h.classList.contains('menu-open'))"><span></span><span></span><span></span></button>
   </div>
 </div></header>
@@ -261,7 +261,7 @@ footer a:hover{color:#fff}
   <h2>How we diagnose without a visit</h2>
   <p>There's no public plant report for a well, so we work from the tested wells near you and the symptoms you describe (staining, smell, past bacteria tests). It's area-based and probabilistic, and we're honest about that. If anything about the install turns out different on the day, you approve any price change before work starts.</p>
   <p><b>One watch-out we'll always flag:</b> if you have a pool on a separate well line, we keep it off the system. Tying it in burns through the media fast. Keeping it separate is what makes your system last.</p></div>
-  <div class="callout" style="max-width:760px;margin-left:auto;margin-right:auto"><b>Ready to see what your home needs?</b> Get a <a href="../free-water-report.html" style="color:var(--color-cta);font-weight:600">free water report</a> or call <a href="tel:+1{{PHONE_TEL}}" style="color:var(--color-cta);font-weight:600">{{PHONE_DISPLAY}}</a>.</div>
+  <div class="callout" style="max-width:760px;margin-left:auto;margin-right:auto;background:#fff;border-left-color:var(--color-cta)"><b>Ready to see what your home needs?</b> Get a <a href="../water-assessment.html" style="color:var(--color-cta);font-weight:600">Free Water Assessment</a> or call <a href="tel:+1{{PHONE_TEL}}" style="color:var(--color-cta);font-weight:600">{{PHONE_DISPLAY}}</a>.</div>
 </div></section><footer><div class="wrap">
   <div class="fgrid">
     <div><img class="logo-foot" src="images/logo-footer.webp" alt="{{COMPANY_NAME}}" alt="{{COMPANY_NAME}}" style="background:#fff;border-radius:10px;padding:10px">
@@ -277,7 +277,7 @@ footer a:hover{color:#fff}
     <div><h4>Company</h4>
       <a href="../about.html">About</a>
       <a href="../index.html#reviews">Reviews</a>
-      <a href="../free-water-report.html">Free Water Report</a>
+      <a href="../water-assessment.html">Free Water Assessment</a>
       <a href="tel:+1{{PHONE_TEL}}">Call Us</a></div>
   </div>
   <div class="fbottom">

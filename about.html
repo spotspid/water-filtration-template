@@ -42,7 +42,7 @@ img{max-width:100%}
 .btn--ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.4)}
 .btn--ghost:hover{border-color:#fff;background:rgba(255,255,255,.08)}
 .btn--lg{padding:17px 32px;font-size:1.02rem}
-header.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--color-border)}
+header.nav{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--color-border);box-shadow:0 2px 8px rgba(28,54,81,.08)}
 .nav-in{position:relative}
 .nav-in{display:flex;align-items:center;justify-content:space-between;height:80px}
 .brand{display:flex;align-items:center}
@@ -156,9 +156,12 @@ footer a:hover{color:#fff}
 .prose p{margin-bottom:16px;color:var(--color-text)}
 .prose ul{margin:0 0 18px 20px}
 .prose li{margin-bottom:8px}
-.about-intro{display:flex;gap:40px;align-items:flex-start}
-.about-photo{flex:none;width:300px}
+.about-intro{display:flex;gap:48px;align-items:flex-start}
+.about-photo{flex:none;width:400px;position:relative}
+.about-photo::before{content:"";position:absolute;top:14px;left:14px;right:-14px;bottom:-14px;background:var(--color-cta);border-radius:20px;z-index:0;opacity:.22}
+.about-photo img{position:relative;z-index:1}
 .about-copy{flex:1}
+.about-subtitle{font-family:var(--font-heading);font-weight:600;font-size:1rem;color:var(--color-accent);margin-bottom:18px}
 .callout{background:var(--color-light-fill);border-left:4px solid var(--color-accent);border-radius:10px;padding:20px 24px;margin:24px 0}
 .callout b{font-family:var(--font-heading);color:var(--color-primary)}
 .faq{max-width:820px;margin:0 auto}
@@ -184,7 +187,7 @@ footer a:hover{color:#fff}
   .hero h1{font-size:2.4rem}
   .pgrid,.scards,.steps,.rgrid,.media-grid{grid-template-columns:1fr}
   .about-intro{flex-direction:column}
-  .about-photo{width:100%;max-width:320px}
+  .about-photo{width:100%;max-width:400px}
   .fgrid{grid-template-columns:1fr 1fr}
   .formwrap{grid-template-columns:1fr;gap:32px}
   .burger{display:flex}
@@ -232,22 +235,22 @@ footer a:hover{color:#fff}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style></head><body><header class="nav"><div class="wrap nav-in">
   <a class="brand" href="index.html" aria-label="{{COMPANY_NAME}} home"><img class="logo-mark" src="images/logo.webp" alt="{{COMPANY_NAME}} logo" alt="{{COMPANY_NAME}} logo"></a>
-  <nav class="nav-links"><a class="lnk" href="services.html">Services</a><a class="lnk" href="service-area.html">Service Area</a><a class="lnk" href="about.html">About</a><a class="lnk" href="index.html#how">How It Works</a></nav>
+  <nav class="nav-links"><a class="lnk" href="index.html">Home</a><a class="lnk" href="services.html">Services</a><a class="lnk" href="service-area.html">Service Area</a><a class="lnk" href="about.html">About</a><a class="lnk" href="index.html#how">How It Works</a></nav>
   <div class="nav-cta">
     <a class="nav-phone" href="tel:+1{{PHONE_TEL}}">{{PHONE_DISPLAY}}</a>
-    <a class="btn btn--primary" href="free-water-report.html">Free Water Report</a>
+    <a class="btn btn--primary" href="water-assessment.html">Free Water Assessment</a>
     <button class="burger" aria-label="Menu" aria-expanded="false" onclick="var h=this.closest('header');h.classList.toggle('menu-open');this.setAttribute('aria-expanded',h.classList.contains('menu-open'))"><span></span><span></span><span></span></button>
   </div>
 </div></header>
-<section class="phero"><div class="wrap">
+<section class="phero" style="padding-bottom:40px"><div class="wrap">
   <div class="crumbs"><a href="index.html">Home</a> / About</div>
-  <h1>Meet {{FOUNDER_FIRST_NAME}}</h1>
-  <p>Founder, {{COMPANY_NAME}}</p>
+  <h1 style="margin-bottom:0">Meet {{FOUNDER_FIRST_NAME}}</h1>
 </div></section>
-<section class="band"><div class="wrap">
+<section class="band" style="padding-top:36px"><div class="wrap">
   <div class="about-intro">
-    <div class="about-photo"><!-- IMAGE PLACEHOLDER: Owner or team headshot. Replace with actual photo. Remove if no headshot available. --><img src="images/owner-headshot.webp" loading="lazy" alt="{{FOUNDER_FIRST_NAME}}, founder of {{COMPANY_NAME}}" style="width:100%;border-radius:16px;box-shadow:0 24px 60px -30px rgba(28,54,81,.55);display:block"></div>
+    <div class="about-photo"><!-- IMAGE PLACEHOLDER: Owner or team headshot. Replace with actual photo. Remove if no headshot available. --><img src="images/owner-headshot.webp" loading="lazy" alt="{{FOUNDER_FIRST_NAME}}, founder of {{COMPANY_NAME}}" style="width:100%;border-radius:16px;box-shadow:0 24px 60px -30px rgba(28,54,81,.55);display:block;border:4px solid var(--color-cta)"></div>
     <div class="about-copy prose">
+      <p class="about-subtitle">Founder, {{COMPANY_NAME}}</p>
       <h2>Why we started this</h2>
       <p>Buying a water system in {{SERVICE_AREA_LABEL}} usually means a salesman in your living room for three hours, a "consultation," and a quote that lands somewhere between $5,000 and $12,000 for equipment that doesn't cost anywhere near that. We thought that was backwards.</p>
       <p>So we built the opposite. We show our price up front. We don't send anyone to pitch you in your home. We pull the public data on your water, recommend exactly what your home needs, and install it, usually for around {{FLAGSHIP_PRICE}} all-in. The savings don't come from cheaper parts. They come from cutting out the bloated way water systems are normally sold.</p>
@@ -274,7 +277,7 @@ footer a:hover{color:#fff}
     <div><h4>Company</h4>
       <a href="about.html">About</a>
       <a href="index.html#reviews">Reviews</a>
-      <a href="free-water-report.html">Free Water Report</a>
+      <a href="water-assessment.html">Free Water Assessment</a>
       <a href="tel:+1{{PHONE_TEL}}">Call Us</a></div>
   </div>
   <div class="fbottom">

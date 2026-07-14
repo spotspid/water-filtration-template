@@ -5,7 +5,7 @@
   <url><loc>https://{{DOMAIN}}/services.html</loc><lastmod>2026-07-10</lastmod><priority>0.7</priority></url>
   <url><loc>https://{{DOMAIN}}/service-area.html</loc><lastmod>2026-07-10</lastmod><priority>0.7</priority></url>
   <url><loc>https://{{DOMAIN}}/about.html</loc><lastmod>2026-07-10</lastmod><priority>0.7</priority></url>
-  <url><loc>https://{{DOMAIN}}/free-water-report.html</loc><lastmod>2026-07-10</lastmod><priority>0.7</priority></url>
+  <url><loc>https://{{DOMAIN}}/water-assessment.html</loc><lastmod>2026-07-10</lastmod><priority>0.7</priority></url>
   <url><loc>https://{{DOMAIN}}/privacy-policy.html</loc><lastmod>2026-07-10</lastmod><priority>0.7</priority></url>
   <url><loc>https://{{DOMAIN}}/terms-of-service.html</loc><lastmod>2026-07-10</lastmod><priority>0.7</priority></url>
   <url><loc>https://{{DOMAIN}}/services/whole-home-filtration.html</loc><lastmod>2026-07-10</lastmod><priority>0.8</priority></url>

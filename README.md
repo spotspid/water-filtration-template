@@ -56,7 +56,7 @@ Options: CHAT WIDGET or WEB FORM.
 ## Chat Widget Placement Rule
 
 Place widget script once per page, before closing body tag.
-EXCLUDE from: lead form page (free-water-report.html), privacy-policy.html, terms-of-service.html.
+EXCLUDE from: lead form page (water-assessment.html), privacy-policy.html, terms-of-service.html.
 Each page that carries the widget has a comment: <!-- CHAT WIDGET: paste GHL chat widget snippet here. Widget ID: {{CHAT_WIDGET_ID}} -->
 
 ## Pages to Create (not in template)
@@ -72,7 +72,7 @@ Both legal pages must EXCLUDE the chat widget per placement rule above.
 - about.html -- about page (owner story placeholder, trust signals)
 - services.html -- services overview
 - service-area.html -- service area overview with city pills
-- free-water-report.html -- lead capture page (GHL form embed, NO chat widget)
+- water-assessment.html -- lead capture page (GHL form embed, NO chat widget; formerly free-water-report.html)
 - services/whole-home-filtration.html -- flagship service page
 - services/reverse-osmosis.html -- RO drinking water service page
 - services/well-water-treatment.html -- OPTIONAL well water page
