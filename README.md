@@ -97,12 +97,12 @@ Verify any icon name at lucide.dev before assigning to a new card.
 ## Build Steps (every new site)
 
 1. **Fill all `{{TOKEN}}` values** — Token Reference table above; search for remaining `{{` before deploy.
-2. **Generate favicons** — Place client logo in `images/logo.png`, then:
+2. **Generate favicons** — Edit `DROP_PATH` and fill color in `gen-favicons.mjs` to match the client's primary mark (one bold shape, 70% of a 100x100 viewBox). Never crop from the full logo raster — a narrow crop fails at 16px. Then run:
    ```
    npm install --save-dev sharp to-ico
    node gen-favicons.mjs
    ```
-   Outputs `favicon.ico` (site root), `images/favicon-32x32.png`, `images/favicon-16x16.png`, `images/apple-touch-icon.png`. Crop the logo mark only — not the wordmark. See `images/README.md` for detail.
+   Verify `images/favicon-16x16.png` reads as a clear shape before committing. Outputs `favicon.ico` (site root), `images/favicon-32x32.png`, `images/favicon-16x16.png`, `images/apple-touch-icon.png`. See `images/README.md` for the full design rule.
 3. **Convert images to .webp** — All images in `images/` should be `.webp`. Use `sharp` or `cwebp`.
 4. **Set GBP address** — If client has a physical GBP address, restore `streetAddress` and `postalCode` to all schema blocks and the footer (see Service-Area Business note above).
 5. **Fill A2P opt-in path** — Choose CHAT WIDGET or WEB FORM and configure per the A2P section above.
