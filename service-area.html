@@ -1,17 +1,17 @@
 ﻿<!DOCTYPE html><html lang="en"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Service Area | {{COMPANY_NAME}} | {{SERVICE_AREA_LABEL}}</title>
-<meta name="description" content="{{COMPANY_NAME}} serves {{SERVICE_AREA_LABEL}} across Wayne and Oakland counties, including all {{SERVICE_AREA_LABEL}} communities.">
+<meta name="description" content="{{COMPANY_NAME}} serves {{SERVICE_AREA_LABEL}}, including all {{SERVICE_AREA_LABEL}} communities.">
 <link rel="canonical" href="https://{{DOMAIN}}/service-area.html">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Service Area | {{COMPANY_NAME}} | {{SERVICE_AREA_LABEL}}">
-<meta property="og:description" content="{{COMPANY_NAME}} serves {{SERVICE_AREA_LABEL}} across Wayne and Oakland counties, including all {{SERVICE_AREA_LABEL}} communities.">
+<meta property="og:description" content="{{COMPANY_NAME}} serves {{SERVICE_AREA_LABEL}}, including all {{SERVICE_AREA_LABEL}} communities.">
 <meta property="og:url" content="https://{{DOMAIN}}/service-area.html">
 <meta property="og:image" content="https://{{DOMAIN}}/assets/logo-full.png">
 <meta property="og:site_name" content="{{COMPANY_NAME}}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Service Area | {{COMPANY_NAME}} | {{SERVICE_AREA_LABEL}}">
-<meta name="twitter:description" content="{{COMPANY_NAME}} serves {{SERVICE_AREA_LABEL}} across Wayne and Oakland counties, including all {{SERVICE_AREA_LABEL}} communities.">
+<meta name="twitter:description" content="{{COMPANY_NAME}} serves {{SERVICE_AREA_LABEL}}, including all {{SERVICE_AREA_LABEL}} communities.">
 <meta name="twitter:image" content="https://{{DOMAIN}}/assets/logo-full.png">
 <link rel="icon" type="image/x-icon" href="favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
 <meta name="robots" content="index,follow">
@@ -245,7 +245,7 @@ footer a:hover{color:#fff}
 </div></header>
 <section class="phero"><div class="wrap">
   <div class="crumbs"><a href="index.html">Home</a> / Service Area</div>
-  <h1>Serving {{SERVICE_AREA_LABEL}} across Wayne and Oakland counties.</h1>
+  <h1>Serving {{SERVICE_AREA_LABEL}} across {{SERVICE_AREA_LABEL}}.</h1>
   <p>We're local to the communities we install in. If you're in or around {{SERVICE_AREA_LABEL}}, we almost certainly cover you, just ask.</p>
 </div></section>
 <section class="band"><div class="wrap">
@@ -253,11 +253,11 @@ footer a:hover{color:#fff}
   <p>Each of these has its own page with the local water story. Don't see your city? Call us, we likely still cover it.</p></div>
   <div class="cities"><!-- CITY PILLS: add one <a class="city" href="service-area/{{CITY_SLUG}}.html">{{CITY_NAME}}</a> per service area city --></div>
   <div class="sec-head" style="margin-top:48px"><h2 style="font-size:1.5rem">Also serving nearby</h2></div>
-  <div class="cities"><span class="city">Plymouth Township</span><span class="city">Canton Township</span><span class="city">Redford Township</span><span class="city">Huntington Woods</span><span class="city">Oak Park</span><span class="city">Clawson</span></div>
+  <div class="cities"><!-- NEARBY CITY PILLS: add one <span class="city">CITY NAME</span> per nearby community at build time --></div>
 </div></section>
 <section class="band band--sky"><div class="wrap">
   <div class="sec-head"><span class="eyebrow">Why local matters here</span><h2>{{SERVICE_AREA_LABEL}} water has its own profile.</h2>
-  <p>Michigan's limestone geology makes this some of the hardest water in the country, and the region is a national PFAS hotspot. A local company that knows the area's water, and installs in it every week, beats a national chain reading off a script.</p></div>
+  <p>Every market has its own water story, driven by geology, infrastructure age, and local industry history. A local company that knows the area's water, and installs in it every week, beats a national chain reading off a script.</p></div>
   <div class="callout" style="background:#fff"><b>Start with the data.</b> Get a <a href="water-assessment.html" style="color:var(--color-cta);font-weight:600">Free Water Assessment</a> for your exact address and we'll show you what's in your supply, no visit required.</div>
 </div></section>
 <footer><div class="wrap">
@@ -266,7 +266,7 @@ footer a:hover{color:#fff}
       <p class="fabout">Whole-home water filtration, softening, and RO drinking water across {{SERVICE_AREA_LABEL}}. Transparent pricing, local install, no in-home sales pitch.</p>
       <p class="faddr">Serving {{SERVICE_AREA_LABEL}}, {{STATE}}</p>
       <p style="margin-top:12px"><a href="tel:+1{{PHONE_TEL}}" style="color:#fff;font-family:var(--font-heading);font-weight:600">{{PHONE_DISPLAY}}</a></p>
-      <p><a href="mailto:contact@{{DOMAIN}}" style="color:#9fb6c4">contact@{{DOMAIN}}</a></p>
+      <p><a href="mailto:{{EMAIL}}" style="color:#9fb6c4">{{EMAIL}}</a></p>
     </div>
     <div><h4>Services</h4><a href="services/whole-home-filtration.html">Whole-Home Filtration</a><a href="services/reverse-osmosis.html">Reverse Osmosis</a><a href="services/well-water-treatment.html">Well Water Treatment</a><a href="services.html">All Services</a></div>
     <div><h4>Service Area</h4>
@@ -275,6 +275,7 @@ footer a:hover{color:#fff}
     <div><h4>Company</h4>
       <a href="about.html">About</a>
       <a href="index.html#reviews">Reviews</a>
+      <a href="{{GBP_URL}}" target="_blank" rel="noopener">Leave a Review</a>
       <a href="water-assessment.html">Free Water Assessment</a>
       <a href="tel:+1{{PHONE_TEL}}">Call Us</a></div>
   </div>

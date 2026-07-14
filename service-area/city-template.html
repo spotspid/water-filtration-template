@@ -1,17 +1,17 @@
 ﻿<!DOCTYPE html><html lang="en"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Water Filtration in {{CITY_NAME}}, MI | {{COMPANY_NAME}}</title>
-<meta name="description" content="Whole-home water filtration, softening, and reverse osmosis in {{CITY_NAME}}, Michigan, installed for {{FLAGSHIP_PRICE}}. A fraction of the brand-name price. free water assessment.">
+<title>Water Filtration in {{CITY_NAME}}, {{STATE}} | {{COMPANY_NAME}}</title>
+<meta name="description" content="Whole-home water filtration, softening, and reverse osmosis in {{CITY_NAME}}, {{STATE}}, installed for {{FLAGSHIP_PRICE}}. A fraction of the brand-name price. free water assessment.">
 <link rel="canonical" href="https://{{DOMAIN}}/service-area/{{CITY_SLUG}}.html">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Water Filtration in {{CITY_NAME}}, MI | {{COMPANY_NAME}}">
-<meta property="og:description" content="Whole-home water filtration, softening, and reverse osmosis in {{CITY_NAME}}, Michigan, installed for {{FLAGSHIP_PRICE}}. A fraction of the brand-name price. free water assessment.">
+<meta property="og:title" content="Water Filtration in {{CITY_NAME}}, {{STATE}} | {{COMPANY_NAME}}">
+<meta property="og:description" content="Whole-home water filtration, softening, and reverse osmosis in {{CITY_NAME}}, {{STATE}}, installed for {{FLAGSHIP_PRICE}}. A fraction of the brand-name price. free water assessment.">
 <meta property="og:url" content="https://{{DOMAIN}}/service-area/{{CITY_SLUG}}.html">
 <meta property="og:image" content="https://{{DOMAIN}}/assets/logo-full.png">
 <meta property="og:site_name" content="{{COMPANY_NAME}}">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Water Filtration in {{CITY_NAME}}, MI | {{COMPANY_NAME}}">
-<meta name="twitter:description" content="Whole-home water filtration, softening, and reverse osmosis in {{CITY_NAME}}, Michigan, installed for {{FLAGSHIP_PRICE}}. A fraction of the brand-name price. free water assessment.">
+<meta name="twitter:title" content="Water Filtration in {{CITY_NAME}}, {{STATE}} | {{COMPANY_NAME}}">
+<meta name="twitter:description" content="Whole-home water filtration, softening, and reverse osmosis in {{CITY_NAME}}, {{STATE}}, installed for {{FLAGSHIP_PRICE}}. A fraction of the brand-name price. free water assessment.">
 <meta name="twitter:image" content="https://{{DOMAIN}}/assets/logo-full.png">
 <link rel="icon" type="image/x-icon" href="../favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
 <meta name="robots" content="index,follow">
@@ -33,7 +33,7 @@
 "telephone":"+1{{PHONE_TEL}}","priceRange":"$$",
 "address":{"@type":"PostalAddress","addressLocality":"{{CITY}}","addressRegion":"{{STATE}}","addressCountry":"US"},
 "areaServed":{"@type":"City","name":"{{CITY_NAME}}"},
-"description":"Water filtration, softening, and reverse osmosis for {{CITY_NAME}}, Michigan homes. Installed for {{FLAGSHIP_PRICE}}."}
+"description":"Water filtration, softening, and reverse osmosis for {{CITY_NAME}}, {{STATE}} homes. Installed for {{FLAGSHIP_PRICE}}."}
 </script>
 <style>
 :root{
@@ -252,14 +252,15 @@ footer a:hover{color:#fff}
 </div></header>
 <section class="phero"><div class="wrap">
   <div class="crumbs"><a href="../index.html">Home</a> / <a href="../service-area.html">Service Area</a> / {{CITY_NAME}}</div>
-  <h1>Water filtration in {{CITY_NAME}}, Michigan.</h1>
+  <h1>Water filtration in {{CITY_NAME}}, {{STATE}}.</h1>
   <!-- LOCAL: 1-2 sentences about {{CITY_NAME}} water quality or local context -->
 <p>Whole-home softening, filtration, and RO drinking water for {{CITY_NAME}} homes, installed for {{FLAGSHIP_PRICE}}. A fraction of the brand-name price, no in-home sales pitch.</p>
 </div></section>
 <section class="band"><div class="wrap"><div class="prose">
-  <p>{{CITY_NAME}} is a fast-growing, affluent community where new construction and family neighborhoods sit on some of the hardest water in the area.</p>
+  <!-- LOCAL: replace the two paragraphs below with {{CITY_LOCAL_CONTENT}} at build time (1-2 sentences about {{CITY_NAME}} water quality or community context) -->
+  <p>{{CITY_LOCAL_CONTENT}}</p>
   <h2>What {{CITY_NAME}} homes are dealing with</h2>
-  <p>{{CITY_NAME}}'s rapid growth means a lot of newer homes, but new construction doesn't soften your water. Hard-water scale on brand-new fixtures and water heaters is the common complaint we hear here. {{CITY_NAME}} is also home base for us.</p>
+  <p>Whatever the local water story, the most common complaints are the same: scale on fixtures, dry skin after a shower, water heaters dying before their time, and water that just doesn't taste right. We pull the public data on your address and tell you exactly what you're dealing with.</p>
   <p>Whatever your situation, the fix is the same honest approach: we pull the public data on your water, tell you exactly what your home needs, and install it, usually within the week, for a transparent all-in price.</p>
   <h2>What we install in {{CITY_NAME}}</h2>
   <ul>
@@ -269,7 +270,7 @@ footer a:hover{color:#fff}
   </ul>
   <div class="callout"><b>Why we're so much cheaper than the brand-name guys:</b> we cut the in-home sales visit and the five-figure markup, not the equipment. Same NSF-certified parts and ceramic disc valve, a fraction of the price.</div>
   <h2>Local, licensed, and same-week</h2>
-  <p>Every {{CITY_NAME}} install is handled by a licensed Michigan installer. We're insured, our equipment is NSF-certified, and you don't pay until the job is done and you're happy.</p>
+  <p>Every {{CITY_NAME}} install is handled by a {{INSTALLER_CREDENTIAL_LINE}}. We're insured, our equipment is NSF-certified, and you don't pay until the job is done and you're happy.</p>
 </div>
   <div class="callout" style="max-width:760px;margin-left:auto;margin-right:auto"><b>Ready to see what's in your {{CITY_NAME}} water?</b> Get a <a href="../water-assessment.html" style="color:var(--color-cta);font-weight:600">Free Water Assessment</a> or call <a href="tel:+1{{PHONE_TEL}}" style="color:var(--color-cta);font-weight:600">{{PHONE_DISPLAY}}</a>.</div>
 </div></section><footer><div class="wrap">
@@ -278,18 +279,18 @@ footer a:hover{color:#fff}
       <p class="fabout">Whole-home water filtration, softening, and RO drinking water across {{SERVICE_AREA_LABEL}}. Transparent pricing, local install, no in-home sales pitch.</p>
       <p class="faddr">Serving {{SERVICE_AREA_LABEL}}, {{STATE}}</p>
       <p style="margin-top:12px"><a href="tel:+1{{PHONE_TEL}}" style="color:#fff;font-family:var(--font-heading);font-weight:600">{{PHONE_DISPLAY}}</a></p>
-      <p><a href="mailto:contact@{{DOMAIN}}" style="color:#9fb6c4">contact@{{DOMAIN}}</a></p>
+      <p><a href="mailto:{{EMAIL}}" style="color:#9fb6c4">{{EMAIL}}</a></p>
     </div>
     <div><h4>Services</h4><a href="../services/whole-home-filtration.html">Whole-Home Filtration</a><a href="../services/reverse-osmosis.html">Reverse Osmosis</a><a href="../services/well-water-treatment.html">Well Water Treatment</a><a href="../services.html">All Services</a></div>
-    <div><h4>Service Area</h4><a href="../service-area/canton.html">Canton</a><a href="../service-area/livonia.html">Livonia</a><a href="../service-area/{{CITY_SLUG}}.html">{{CITY_NAME}}</a><a href="../service-area/northville.html">Northville</a><a href="../service-area/plymouth.html">Plymouth</a><a href="../service-area.html">All cities &rarr;</a></div>
+    <div><h4>Service Area</h4><!-- FOOTER CITY LINKS: add one <a href="../service-area/SLUG.html">CITY</a> per primary service city at build time --><a href="../service-area.html">All cities &rarr;</a></div>
     <div><h4>Company</h4>
       <a href="../about.html">About</a>
-      <a href="../index.html#reviews">Reviews</a>
+      <a href="{{GBP_URL}}" target="_blank" rel="noopener">Leave a Review</a>
       <a href="../water-assessment.html">Free Water Assessment</a>
       <a href="tel:+1{{PHONE_TEL}}">Call Us</a></div>
   </div>
   <div class="fbottom">
-    <span>&copy; 2026 {{LEGAL_NAME}} &middot; {{CITY_NAME}}, Michigan</span>
+    <span>&copy; 2026 {{LEGAL_NAME}} &middot; {{CITY_NAME}}, {{STATE}}</span>
     <span><a href="../privacy-policy.html" style="color:#9fb6c4">Privacy Policy</a> &middot; <a href="../terms-of-service.html" style="color:#9fb6c4">Terms of Service</a></span>
     <span>Licensed &amp; insured &middot; NSF-certified equipment</span>
   </div>

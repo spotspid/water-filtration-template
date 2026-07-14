@@ -5,11 +5,20 @@ Place client image files here. Required files:
 - logo.webp -- primary logo, used in nav header
 - logo-footer.webp -- logo variant for footer (white or light version)
 - hero-bg.webp -- hero section background (water surface, clean water close-up, or local landmark)
-- flagship-system.webp -- whole-home filtration system hardware photo
+- flagship-system.webp -- whole-home filtration system hardware photo. A gradient SVG placeholder is committed at this path (navy-to-sky gradient with a centered drop icon). Replace with the client's actual system photo at build time.
 - owner-headshot.webp -- owner or team headshot (about page)
 - ro-stage-1.webp through ro-stage-4.webp -- reverse osmosis stage diagrams or photos
 
 All images should be .webp format, optimized for web.
+
+## Stock photos (_incoming/)
+
+Place licensed stock photos in `images/_incoming/` before running the conversion step. Required slots:
+
+- hero-bg.webp -- water surface or clean-water close-up (hero background)
+- owner-headshot.webp -- owner or team headshot
+
+Convert to webp after placing: `node -e "import('sharp').then(s=>...)"` or use cwebp. No `_incoming/` directory is committed -- add it at build time per client.
 
 ## Favicon files (generate at build time)
 

@@ -111,7 +111,7 @@ Verify any icon name at lucide.dev before assigning to a new card.
 
 ## Known Judgment Calls (review at build time)
 
-- index.html "why your water" section (lines ~281-283): contains three Michigan-specific problem cards referencing "Michigan's limestone geology", "Michigan is a national PFAS hotspot / automotive corridor", and chlorine from municipal treatment. These survived the strip because the third card is generic but the first two are MWP-geography. When building for a non-Michigan market, rewrite those two cards with local water quality context before deploy.
+- index.html "why your water" section: the three problem cards are now generic (hard water scale, PFAS nationally, chlorine/taste). The HTML comment on the section reads "localize these three cards per client market at build time." For markets with distinctive water issues (lead from aging infrastructure, specific industrial PFAS sources, agricultural runoff), replace card h3 and body copy with locally accurate content before deploy.
 
 ## Style Rules
 
