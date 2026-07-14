@@ -94,6 +94,21 @@ Canonical icon assignments in this template (change only if the card content cha
 
 Verify any icon name at lucide.dev before assigning to a new card.
 
+## Build Steps (every new site)
+
+1. **Fill all `{{TOKEN}}` values** — Token Reference table above; search for remaining `{{` before deploy.
+2. **Generate favicons** — Place client logo in `images/logo.png`, then:
+   ```
+   npm install --save-dev sharp to-ico
+   node gen-favicons.mjs
+   ```
+   Outputs `favicon.ico` (site root), `images/favicon-32x32.png`, `images/favicon-16x16.png`, `images/apple-touch-icon.png`. Crop the logo mark only — not the wordmark. See `images/README.md` for detail.
+3. **Convert images to .webp** — All images in `images/` should be `.webp`. Use `sharp` or `cwebp`.
+4. **Set GBP address** — If client has a physical GBP address, restore `streetAddress` and `postalCode` to all schema blocks and the footer (see Service-Area Business note above).
+5. **Fill A2P opt-in path** — Choose CHAT WIDGET or WEB FORM and configure per the A2P section above.
+6. **Create city pages** — Duplicate `service-area/city-template.html` per city, rename, fill tokens.
+7. **Update sitemap** — Replace `{{DOMAIN}}` and regenerate city page URLs.
+
 ## Known Judgment Calls (review at build time)
 
 - index.html "why your water" section (lines ~281-283): contains three Michigan-specific problem cards referencing "Michigan's limestone geology", "Michigan is a national PFAS hotspot / automotive corridor", and chlorine from municipal treatment. These survived the strip because the third card is generic but the first two are MWP-geography. When building for a non-Michigan market, rewrite those two cards with local water quality context before deploy.
