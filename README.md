@@ -81,6 +81,19 @@ Both legal pages must EXCLUDE the chat widget per placement rule above.
 - robots.txt
 - images/ -- place client image files here (see images/README.md)
 
+## Icon Rule
+
+Problem-card icons (the rounded badge in .pcard .ic) come from the **Lucide** library verbatim. Never hand-draw SVG paths for these cards.
+
+Standard setup: `npm install lucide`, pull the path data from `node_modules/lucide/dist/esm/icons/<name>.mjs`, inline as `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="{{COLOR_ACCENT}}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">`. Do not modify path `d` values.
+
+Canonical icon assignments in this template (change only if the card content changes):
+- Hard water / scale cards: `droplets`
+- Chemical / PFAS / forever-chemicals cards: `flask-conical`
+- Contamination / chlorine / off-water cards: `droplet-off`
+
+Verify any icon name at lucide.dev before assigning to a new card.
+
 ## Known Judgment Calls (review at build time)
 
 - index.html "why your water" section (lines ~281-283): contains three Michigan-specific problem cards referencing "Michigan's limestone geology", "Michigan is a national PFAS hotspot / automotive corridor", and chlorine from municipal treatment. These survived the strip because the third card is generic but the first two are MWP-geography. When building for a non-Michigan market, rewrite those two cards with local water quality context before deploy.
