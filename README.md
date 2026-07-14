@@ -113,6 +113,12 @@ Verify any icon name at lucide.dev before assigning to a new card.
 
 - index.html "why your water" section (lines ~281-283): contains three Michigan-specific problem cards referencing "Michigan's limestone geology", "Michigan is a national PFAS hotspot / automotive corridor", and chlorine from municipal treatment. These survived the strip because the third card is generic but the first two are MWP-geography. When building for a non-Michigan market, rewrite those two cards with local water quality context before deploy.
 
+## Style Rules
+
+- **Muted text never sits on a colored background.** `.band--sky` and `.band--navy` backgrounds require explicit color overrides for all text elements. CSS already includes `.band--sky .sec-head p{color:var(--color-primary)}` and `.band--sky .eyebrow{color:var(--color-primary)}`. If you add new colored bands or new text elements on existing colored bands, always add an override that passes WCAG AA (4.5:1 contrast ratio for body text).
+- **CTAs are always Title Case.** "Get Your Free Water Assessment", "Call Now", "Free Water Assessment". Never lowercase button text or CTA link text, even inside nav or footer. Page `<title>` tags and OG titles follow the same rule.
+- **No CSS `text-transform: lowercase` on interactive elements.** `.eyebrow` and `.pc-label` use `uppercase` as a design treatment for non-CTA labels only. Never apply `lowercase` to buttons, links, or CTAs.
+
 ## Water Filtration Vertical Rules
 
 - Never name Culligan or Kinetico. Approved substitutes: "the brand-name guys", "the salesman in your kitchen" framing.
