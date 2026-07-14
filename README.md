@@ -88,9 +88,9 @@ Problem-card icons (the rounded badge in .pcard .ic) come from the **Lucide** li
 Standard setup: `npm install lucide`, pull the path data from `node_modules/lucide/dist/esm/icons/<name>.mjs`, inline as `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="{{COLOR_ACCENT}}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">`. Do not modify path `d` values.
 
 Canonical icon assignments in this template (change only if the card content changes):
-- Hard water / scale cards: `droplets`
+- Hard water / scale / fixture cards: `shower-head`
 - Chemical / PFAS / forever-chemicals cards: `flask-conical`
-- Contamination / chlorine / off-water cards: `droplet-off`
+- Contamination / lead / threat cards: `shield-alert`
 
 Verify any icon name at lucide.dev before assigning to a new card.
 
