@@ -108,6 +108,16 @@ Verify any icon name at lucide.dev before assigning to a new card.
 6. **Create city pages** -- Duplicate `service-area/city-template.html` per city, rename to CITY_SLUG.html, fill tokens. Then **DELETE `service-area/city-template.html`** from the client folder before deploying -- it must never go live.
 7. **Update sitemap** -- Replace `{{DOMAIN}}` and add city page URLs.
 
+## Image Path Standard
+
+All image and favicon `src`/`href` attributes in this template use **root-relative paths** (`/images/logo.webp`, `/favicon.ico`). Root-relative paths resolve correctly from any directory depth and cannot break when a page moves between folders.
+
+**Rule:** Never use bare-relative image paths (`images/logo.webp` or `../images/logo.webp`) in any HTML file. Always use root-relative (`/images/...`).
+
+**When adding a new page in a subdirectory** (`service-area/`, `services/`, or any new folder): before committing, audit every `src=`, `href=`, and `url()` in that file and confirm all image/favicon paths start with `/`. A bare `images/` path in a subdir page will silently 404 on any Linux host.
+
+**og:image and JSON-LD schema "image"** must always reference `/images/logo.webp` (as a full URL: `https://{{DOMAIN}}/images/logo.webp`). There is no `/assets/` directory in this template -- that path has never existed and must never appear in any HTML.
+
 ## Known Judgment Calls (review at build time)
 
 - index.html "why your water" section: the three problem cards are now generic (hard water scale, PFAS nationally, chlorine/taste). The HTML comment on the section reads "localize these three cards per client market at build time." For markets with distinctive water issues (lead from aging infrastructure, specific industrial PFAS sources, agricultural runoff), replace card h3 and body copy with locally accurate content before deploy.
