@@ -76,10 +76,10 @@ Both legal pages must EXCLUDE the chat widget per placement rule above.
 - services/whole-home-filtration.html -- flagship service page
 - services/reverse-osmosis.html -- RO drinking water service page
 - services/well-water-treatment.html -- OPTIONAL well water page
-- service-area/city-template.html -- city landing page pattern (duplicate per city, fill tokens)
+- service-area/city-template.html -- city landing page pattern (duplicate per city, fill tokens). **DELETE this file from every client site folder after city page generation -- it must never be deployed.**
 - sitemap.xml -- update {{DOMAIN}} and regenerate city URLs per your service-area pages
 - robots.txt
-- images/ -- place client image files here (see images/README.md)
+- images/ -- default stock images + SVG placeholders committed to template; per-client files added at build time (see images/README.md)
 
 ## Icon Rule
 
@@ -97,17 +97,16 @@ Verify any icon name at lucide.dev before assigning to a new card.
 ## Build Steps (every new site)
 
 1. **Fill all `{{TOKEN}}` values** — Token Reference table above; search for remaining `{{` before deploy.
-2. **Generate favicons** — Edit `DROP_PATH` and fill color in `gen-favicons.mjs` to match the client's primary mark (one bold shape, 70% of a 100x100 viewBox). Never crop from the full logo raster — a narrow crop fails at 16px. Then run:
+2. **Supply per-client images** — Drop `logo.webp`, `logo-footer.webp`, and `owner-headshot.webp` into `images/`. The default stock images (hero-water, equipment-tank, ro-stage-*, lifestyle-*) are already committed. Replace with real photos when available. See `images/README.md` for the full slot table.
+3. **Generate favicons** — Edit `DROP_PATH` and fill color in `gen-favicons.mjs` to match the client's primary mark (one bold shape, 70% of a 100x100 viewBox). Never crop from the full logo raster -- a narrow crop fails at 16px. Then run:
    ```
-   npm install --save-dev sharp to-ico
    node gen-favicons.mjs
    ```
    Verify `images/favicon-16x16.png` reads as a clear shape before committing. Outputs `favicon.ico` (site root), `images/favicon-32x32.png`, `images/favicon-16x16.png`, `images/apple-touch-icon.png`. See `images/README.md` for the full design rule.
-3. **Convert images to .webp** — All images in `images/` should be `.webp`. Use `sharp` or `cwebp`.
-4. **Set GBP address** — If client has a physical GBP address, restore `streetAddress` and `postalCode` to all schema blocks and the footer (see Service-Area Business note above).
-5. **Fill A2P opt-in path** — Choose CHAT WIDGET or WEB FORM and configure per the A2P section above.
-6. **Create city pages** — Duplicate `service-area/city-template.html` per city, rename, fill tokens.
-7. **Update sitemap** — Replace `{{DOMAIN}}` and regenerate city page URLs.
+4. **Set GBP address** -- If client has a physical GBP address, restore `streetAddress` and `postalCode` to all schema blocks and the footer (see Service-Area Business note above).
+5. **Fill A2P opt-in path** -- Choose CHAT WIDGET or WEB FORM and configure per the A2P section above.
+6. **Create city pages** -- Duplicate `service-area/city-template.html` per city, rename to CITY_SLUG.html, fill tokens. Then **DELETE `service-area/city-template.html`** from the client folder before deploying -- it must never go live.
+7. **Update sitemap** -- Replace `{{DOMAIN}}` and add city page URLs.
 
 ## Known Judgment Calls (review at build time)
 
@@ -118,6 +117,10 @@ Verify any icon name at lucide.dev before assigning to a new card.
 - **Muted text never sits on a colored background.** `.band--sky` and `.band--navy` backgrounds require explicit color overrides for all text elements. CSS already includes `.band--sky .sec-head p{color:var(--color-primary)}` and `.band--sky .eyebrow{color:var(--color-primary)}`. If you add new colored bands or new text elements on existing colored bands, always add an override that passes WCAG AA (4.5:1 contrast ratio for body text).
 - **CTAs are always Title Case.** "Get Your Free Water Assessment", "Call Now", "Free Water Assessment". Never lowercase button text or CTA link text, even inside nav or footer. Page `<title>` tags and OG titles follow the same rule.
 - **No CSS `text-transform: lowercase` on interactive elements.** `.eyebrow` and `.pc-label` use `uppercase` as a design treatment for non-CTA labels only. Never apply `lowercase` to buttons, links, or CTAs.
+
+## Default Image Licenses
+
+Stock images committed to `images/` are sourced from Pexels and Unsplash under their free-license terms (commercial use permitted, no attribution required). Equipment shots are generic placeholders -- replace with real install photos per client when available. Lifestyle slot files (lifestyle-kitchen, lifestyle-family, lifestyle-shower) ship as labeled SVG placeholders pending real stock sourcing per client.
 
 ## Water Filtration Vertical Rules
 

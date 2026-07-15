@@ -1,9 +1,10 @@
 import sharp from 'sharp';
 import { writeFileSync } from 'fs';
 
-// Placeholder for flagship-system.webp
+// Placeholder for equipment-tank.webp (formerly flagship-system.webp)
 // Gradient uses template token source colors: navy #1C3651, teal #2C819B, sky #DFF7FC
 // A subtle water-drop SVG centered on the gradient background.
+// NOTE: gen-default-images.mjs supersedes this for the full default set.
 const DROP_PATH = 'M50 15 C52 25 75 44 75 62 A25 25 0 0 1 25 62 C25 44 48 25 50 15Z';
 
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" width="600" height="480">
@@ -32,5 +33,5 @@ const buf = await sharp(Buffer.from(svg))
   .webp({ quality: 82 })
   .toBuffer();
 
-writeFileSync('images/flagship-system.webp', buf);
-console.log('images/flagship-system.webp written (placeholder)');
+writeFileSync('images/equipment-tank.webp', buf);
+console.log('images/equipment-tank.webp written (placeholder)');

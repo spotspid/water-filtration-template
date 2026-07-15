@@ -1,34 +1,65 @@
 # images/
 
-Place client image files here. Required files:
+## Default image set (committed to template)
 
-- logo.webp -- primary logo, used in nav header
-- logo-footer.webp -- logo variant for footer (white or light version)
-- hero-bg.webp -- hero section background (water surface, clean water close-up, or local landmark)
-- flagship-system.webp -- whole-home filtration system hardware photo. A gradient SVG placeholder is committed at this path (navy-to-sky gradient with a centered drop icon). Replace with the client's actual system photo at build time.
-- owner-headshot.webp -- owner or team headshot (about page)
-- ro-stage-1.webp through ro-stage-4.webp -- reverse osmosis stage diagrams or photos
+These files are free-license stock images (sourced from Pexels / Unsplash) or SVG-generated
+placeholders. They ship with the template so client builds have working visuals before per-client
+photos arrive. Equipment shots are generic stand-ins -- replace with real install photos when
+available.
 
-All images should be .webp format, optimized for web.
+| File | Slot | Dimensions | Source | Replace? |
+|------|------|-----------|--------|----------|
+| hero-water.webp | Hero section background | 1920x480 | Stock (water surface) | When client provides local photo |
+| equipment-tank.webp | Whole-home system product shot | 600x480 | Stock (generic system) | When client provides real install photo |
+| equipment-ro.webp | RO system / under-sink unit | 600x480 | Placeholder (labeled) | When client provides RO unit photo |
+| lifestyle-kitchen.webp | Kitchen / faucet lifestyle scene | 960x640 | Placeholder (labeled) | When stock or client photo available |
+| lifestyle-family.webp | Family drinking water scene | 960x640 | Placeholder (labeled) | When stock or client photo available |
+| lifestyle-shower.webp | Shower / bathroom water scene | 960x640 | Placeholder (labeled) | When stock or client photo available |
+| ro-stage-1.webp | RO faucet finish: Chrome | 149x240 | Stock (faucet photo) | Optional -- per client finish options |
+| ro-stage-2.webp | RO faucet finish: Brushed Nickel | 146x240 | Stock (faucet photo) | Optional -- per client finish options |
+| ro-stage-3.webp | RO faucet finish: Matte Black | 140x240 | Stock (faucet photo) | Optional -- per client finish options |
+| ro-stage-4.webp | RO faucet finish: Brushed Gold | 139x240 | Stock (faucet photo) | Optional -- per client finish options |
 
-## Stock photos (_incoming/)
+## Per-client slots (NOT committed to template)
 
-Place licensed stock photos in `images/_incoming/` before running the conversion step. Required slots:
+These files must be supplied at build time. The HTML contains `<!-- PER-CLIENT IMAGE: replace at build -->`
+comments next to each reference.
 
-- hero-bg.webp -- water surface or clean-water close-up (hero background)
-- owner-headshot.webp -- owner or team headshot
+| File | Slot | Notes |
+|------|------|-------|
+| logo.webp | Nav header logo | Raster PNG preferred; use white/light backgrounds only if raster with opaque bg |
+| logo-footer.webp | Footer logo | Light/white variant; footer uses dark bg -- place logo on white tile if PNG |
+| owner-headshot.webp | About page headshot | ~300px wide, left-floated next to bio; compress to webp |
 
-Convert to webp after placing: `node -e "import('sharp').then(s=>...)"` or use cwebp. No `_incoming/` directory is committed -- add it at build time per client.
+To convert a client JPG or PNG to webp:
+```
+node -e "import('sharp').then(s => s.default('Selfie.jpg').resize(600).webp({quality:82}).toFile('images/owner-headshot.webp'))"
+```
 
 ## Favicon files (generate at build time)
 
-Run `node gen-favicons.mjs` from the site root.
-The script requires `npm install --save-dev sharp to-ico` and produces:
+Run `node gen-favicons.mjs` from the site root after editing the DROP_PATH and fill color for
+the client's mark. See the favicon design rule below.
 
-- favicon.ico -- 32px ICO, placed at site root
-- favicon-16x16.png -- 16px PNG
-- favicon-32x32.png -- 32px PNG
-- apple-touch-icon.png -- 180px PNG on white canvas with extra padding
+Output locations:
+- favicon.ico -- site root
+- images/favicon-16x16.png
+- images/favicon-32x32.png
+- images/apple-touch-icon.png
+
+## Regenerating default images
+
+To regenerate the full default set (e.g. after sourcing better stock photos):
+
+```
+node gen-default-images.mjs
+```
+
+To regenerate the equipment-tank placeholder only (no stock source required):
+
+```
+node gen-placeholder.mjs
+```
 
 ## Favicon design rule
 
@@ -37,6 +68,5 @@ The SVG is a single bold shape (water drop, initial letter, or equivalent) on a 
 rounded-square background. The shape must fill ~70% of the canvas height. A narrow or
 detailed raster crop always fails at 16px -- a single solid shape does not.
 
-To adapt for a new client: edit the DROP_PATH and fill color in gen-favicons.mjs.
-Use a 100x100 viewBox. The shape must read clearly at 11x16px (16px render at 70% height).
-Verify by running the script and reading images/favicon-16x16.png before committing.
+Adapt for a new client: edit the DROP_PATH and fill color in gen-favicons.mjs.
+Use a 100x100 viewBox. Verify images/favicon-16x16.png reads clearly before committing.
