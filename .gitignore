@@ -1,6 +1,1 @@
-node_modules/
-.netlify/
-.DS_Store
-Thumbs.db
-Desktop.ini
-*.swp
+﻿node_modules/

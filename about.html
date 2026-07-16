@@ -1,31 +1,31 @@
 ﻿<!DOCTYPE html><html lang="en"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>About | {{COMPANY_NAME}}</title>
-<meta name="description" content="{{COMPANY_NAME}} is the transparent-pricing water filtration company for {{SERVICE_AREA_LABEL}}. Premium NSF-certified equipment, local licensed install, no in-home sales pitch.">
-<link rel="canonical" href="https://{{DOMAIN}}/about.html">
+<title>About | Bluebonnet Water Filtration</title>
+<meta name="description" content="Bluebonnet Water Filtration serves Dallas-Fort Worth with whole-home water filtration and softening. Test first, honest pricing, professional installation.">
+<link rel="canonical" href="https://www.bluebonnetwaterfiltration.com/about.html">
 <meta property="og:type" content="website">
-<meta property="og:title" content="About | {{COMPANY_NAME}}">
-<meta property="og:description" content="{{COMPANY_NAME}} is the transparent-pricing water filtration company for {{SERVICE_AREA_LABEL}}. Premium NSF-certified equipment, local licensed install, no in-home sales pitch.">
-<meta property="og:url" content="https://{{DOMAIN}}/about.html">
-<meta property="og:image" content="https://{{DOMAIN}}/images/logo.webp">
-<meta property="og:site_name" content="{{COMPANY_NAME}}">
+<meta property="og:title" content="About | Bluebonnet Water Filtration">
+<meta property="og:description" content="Bluebonnet Water Filtration serves Dallas-Fort Worth with whole-home water filtration and softening. Test first, honest pricing, professional installation.">
+<meta property="og:url" content="https://www.bluebonnetwaterfiltration.com/about.html">
+<meta property="og:image" content="https://www.bluebonnetwaterfiltration.com/images/logo.webp">
+<meta property="og:site_name" content="Bluebonnet Water Filtration">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="About | {{COMPANY_NAME}}">
-<meta name="twitter:description" content="{{COMPANY_NAME}} is the transparent-pricing water filtration company for {{SERVICE_AREA_LABEL}}. Premium NSF-certified equipment, local licensed install, no in-home sales pitch.">
-<meta name="twitter:image" content="https://{{DOMAIN}}/images/logo.webp">
+<meta name="twitter:title" content="About | Bluebonnet Water Filtration">
+<meta name="twitter:description" content="Bluebonnet Water Filtration serves Dallas-Fort Worth with whole-home water filtration and softening. Test first, honest pricing, professional installation.">
+<meta name="twitter:image" content="https://www.bluebonnetwaterfiltration.com/images/logo.webp">
 <link rel="icon" type="image/x-icon" href="favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
 <meta name="robots" content="index,follow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family={{FONT_HEADING}}:wght@500;600;700&family={{FONT_BODY}}:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
 <!-- OPTIONAL: Well water content. Remove if client serves municipal water only. --><!-- END OPTIONAL -->
 
 <style>
 :root{
-  --color-primary:{{COLOR_PRIMARY}}; --color-accent:{{COLOR_ACCENT}}; --color-light-fill:{{COLOR_LIGHT_FILL}}; --color-cta:{{COLOR_CTA}};
-  --color-bg:{{COLOR_BG}}; --color-text:{{COLOR_TEXT}}; --color-border:{{COLOR_BORDER}}; --color-muted:{{COLOR_MUTED}};
-  --font-heading:{{FONT_HEADING}};
-  --font-body:{{FONT_BODY}};
+  --color-primary:#002858; --color-accent:#0661B9; --color-light-fill:#EBF1F8; --color-cta:#EBA018;
+  --color-bg:#F4F6F8; --color-text:#1A2230; --color-border:#E4E8ED; --color-muted:#6B7A8D;
+  --font-heading:Archivo;
+  --font-body:Source Sans 3;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -36,27 +36,27 @@ a{color:inherit;text-decoration:none}
 img{max-width:100%}
 .eyebrow{font-family:var(--font-heading);font-weight:600;font-size:0.72rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-accent)}
 .btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--font-heading);font-weight:600;font-size:0.95rem;padding:14px 26px;border-radius:10px;transition:.18s;cursor:pointer;border:2px solid transparent;white-space:nowrap}
-.btn--primary{background:var(--color-cta);color:#fff}
-.btn--primary:hover{background:{{COLOR_CTA_HOVER}};transform:translateY(-1px)}
+.btn--primary{background:var(--color-cta);color:#002858}
+.btn--primary:hover{background:#C88A10;transform:translateY(-1px)}
 .btn--white{background:#fff;color:var(--color-primary);border-color:var(--color-border)}
 .btn--white:hover{border-color:var(--color-accent);color:var(--color-accent)}
 .btn--ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.4)}
 .btn--ghost:hover{border-color:#fff;background:rgba(255,255,255,.08)}
 .btn--lg{padding:17px 32px;font-size:1.02rem}
-header.nav{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--color-border);box-shadow:0 2px 8px rgba(28,54,81,.08)}
+header.nav{position:sticky;top:0;z-index:50;background:var(--color-primary);border-bottom:1px solid rgba(255,255,255,.12);box-shadow:0 2px 12px rgba(0,0,0,.35)}
 .nav-in{position:relative}
 .nav-in{display:flex;align-items:center;justify-content:space-between;height:80px}
 .brand{display:flex;align-items:center}
 .logo-mark{width:auto;height:52px;flex:none}
 .logo-foot{height:66px;width:auto}
 .nav-links{display:flex;align-items:center;gap:30px}
-.nav-links a.lnk{font-family:var(--font-heading);font-weight:500;font-size:0.93rem;color:var(--color-primary)}
-.nav-links a.lnk:hover{color:var(--color-accent)}
+.nav-links a.lnk{font-family:var(--font-heading);font-weight:500;font-size:0.93rem;color:rgba(255,255,255,.88)}
+.nav-links a.lnk:hover{color:#EBA018}
 .nav-cta{display:flex;align-items:center;gap:14px}
-.nav-phone{font-family:var(--font-heading);font-weight:600;color:var(--color-primary);font-size:0.96rem}
-.nav-phone:hover{color:var(--color-accent)}
+.nav-phone{font-family:var(--font-heading);font-weight:600;color:#fff;font-size:0.96rem}
+.nav-phone:hover{color:#EBA018}
 .burger{display:none;background:none;border:0;cursor:pointer;flex-direction:column;gap:5px;padding:8px}
-.burger span{width:24px;height:2px;background:var(--color-primary);display:block;border-radius:2px}
+.burger span{width:24px;height:2px;background:#fff;display:block;border-radius:2px}
 .hero{background:linear-gradient(160deg,#16293c 0%,var(--color-primary) 55%,#234562 100%);color:#fff;position:relative;overflow:hidden}
 .hero-photo{position:absolute;inset:0;z-index:0;overflow:hidden}
 .hero-photo img{width:100%;height:100%;object-fit:cover;opacity:.5;object-position:center 42%}
@@ -234,44 +234,45 @@ footer a:hover{color:#fff}
   .finalcta h2{font-size:1.7rem}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+.logo-badge{background:#fff;border-radius:10px;padding:6px 14px;display:inline-flex;align-items:center}
 </style></head><body><header class="nav"><div class="wrap nav-in">
-  <a class="brand" href="index.html" aria-label="{{COMPANY_NAME}} home"><!-- PER-CLIENT IMAGE: replace at build --><img class="logo-mark" src="images/logo.webp" alt="{{COMPANY_NAME}} logo" alt="{{COMPANY_NAME}} logo"></a>
+  <a class="brand" href="index.html" aria-label="Bluebonnet Water Filtration home"><div class="logo-badge"><!-- LOGO: awaiting bluebonnet-logo.png from client -- replace images/logo.webp and images/logo-footer.webp --><img class="logo-mark" src="images/logo.webp" alt="Bluebonnet Water Filtration logo"></div></a>
   <nav class="nav-links"><a class="lnk" href="index.html">Home</a><a class="lnk" href="services.html">Services</a><a class="lnk" href="service-area.html">Service Area</a><a class="lnk" href="about.html">About</a><a class="lnk" href="index.html#how">How It Works</a></nav>
   <div class="nav-cta">
-    <a class="nav-phone" href="tel:+1{{PHONE_TEL}}">{{PHONE_DISPLAY}}</a>
-    <a class="btn btn--primary" href="water-assessment.html">Free Water Assessment</a>
+    <a class="nav-phone" href="tel:+18176324222">817-632-4222</a>
+    <a class="btn btn--primary" href="water-assessment.html">Get Your Free Water Test</a>
     <button class="burger" aria-label="Menu" aria-expanded="false" onclick="var h=this.closest('header');h.classList.toggle('menu-open');this.setAttribute('aria-expanded',h.classList.contains('menu-open'))"><span></span><span></span><span></span></button>
   </div>
 </div></header>
 <section class="phero" style="padding-bottom:40px"><div class="wrap">
   <div class="crumbs"><a href="index.html">Home</a> / About</div>
-  <h1 style="margin-bottom:0">Meet {{FOUNDER_FIRST_NAME}}</h1>
+  <h1 style="margin-bottom:0">Meet Lucas</h1>
 </div></section>
 <section class="band" style="padding-top:36px"><div class="wrap">
   <div class="about-intro">
-    <div class="about-photo"><!-- PER-CLIENT IMAGE: replace at build --><img src="images/owner-headshot.webp" loading="lazy" alt="{{FOUNDER_FIRST_NAME}}, founder of {{COMPANY_NAME}}" style="width:100%;border-radius:16px;box-shadow:0 24px 60px -30px rgba(28,54,81,.55);display:block;border:4px solid var(--color-cta)"></div>
+    <div class="about-photo"><!-- PER-CLIENT IMAGE: replace at build --><img src="images/owner-headshot.webp" loading="lazy" alt="Lucas, founder of Bluebonnet Water Filtration" style="width:100%;border-radius:16px;box-shadow:0 24px 60px -30px rgba(28,54,81,.55);display:block;border:4px solid var(--color-cta)"></div>
     <div class="about-copy prose">
-      <p class="about-subtitle">Founder, {{COMPANY_NAME}}</p>
-      <!-- ABOUT_COPY: replace the paragraph below with {{ABOUT_COPY}} at build time (2-4 sentences, owner voice, personal story) -->
-      <p>{{ABOUT_COPY}}</p>
+      <p class="about-subtitle">Founder, Bluebonnet Water Filtration</p>
+      <!-- ABOUT_COPY: replace the paragraph below with I grew up in Texas and spent years watching people pay two to four times the going rate for a water softener because a salesman sat in their living room long enough. That got old. Bluebonnet is the answer to it: straight information, one honest price, and equipment that actually performs. at build time (2-4 sentences, owner voice, personal story) -->
+      <p>I grew up in Texas and spent years watching people pay two to four times the going rate for a water softener because a salesman sat in their living room long enough. That got old. Bluebonnet is the answer to it: straight information, one honest price, and equipment that actually performs.</p>
       <h2>Why we started this</h2>
-      <p>Buying a water system in {{SERVICE_AREA_LABEL}} usually means a salesman in your living room for three hours, a "consultation," and a quote that lands somewhere between $5,000 and $12,000 for equipment that doesn't cost anywhere near that. We thought that was backwards.</p>
-      <p>So we built the opposite. We show our price up front. We don't send anyone to pitch you in your home. We pull the public data on your water, recommend exactly what your home needs, and install it, usually for around {{FLAGSHIP_PRICE}} all-in. The savings don't come from cheaper parts. They come from cutting out the bloated way water systems are normally sold.</p>
+      <p>Buying a water system in Dallas-Fort Worth usually means a salesman in your living room for three hours, a "consultation," and a quote that lands somewhere between $5,000 and $12,000 for equipment that doesn't cost anywhere near that. We thought that was backwards.</p>
+      <p>So we built the opposite. We show our price up front. We don't send anyone to pitch you in your home. We pull the public data on your water, recommend exactly what your home needs, and install it, usually for around $2,999 all-in. The savings don't come from cheaper parts. They come from cutting out the bloated way water systems are normally sold.</p>
       <h2>Same factory. Better media. Leaner model.</h2>
       <p>Our systems come from the same manufacturers that supply the brand-name guys. The difference is what goes inside: we refuse to cheap out on the carbon and resin, and we use a ceramic disc valve that outlasts the plastic ones the competition relies on. Premium components, honest price. That's the whole story, and it's true.</p>
       <h2>Local, licensed, and accountable</h2>
-      <p>Every install is done by a {{INSTALLER_CREDENTIAL_LINE}}, right here in {{SERVICE_AREA_LABEL}}. We're insured, our equipment is NSF-certified, and you don't pay until the job is done and you're happy. No deposit to get started.</p>
+      <p>Every install is done by a professional installer, right here in Dallas-Fort Worth. We're insured, our equipment is NSF-certified, and you don't pay until the job is done and you're happy. No deposit to get started.</p>
       <div class="callout"><b>How we compete:</b> on honest pricing and genuine service, period. We don't fake reviews, we don't play games to game search rankings, and we don't badmouth competitors by name. In a professional market like ours, a clean reputation is the most valuable thing we own.</div>
     </div>
   </div>
 </div></section>
 <footer><div class="wrap">
   <div class="fgrid">
-    <div><!-- PER-CLIENT IMAGE: replace at build --><img class="logo-foot" src="images/logo-footer.webp" alt="{{COMPANY_NAME}}" alt="{{COMPANY_NAME}}" style="background:#fff;border-radius:10px;padding:10px">
-      <p class="fabout">Whole-home water filtration, softening, and RO drinking water across {{SERVICE_AREA_LABEL}}. Transparent pricing, local install, no in-home sales pitch.</p>
-      <p class="faddr">Serving {{SERVICE_AREA_LABEL}}, {{STATE}}</p>
-      <p style="margin-top:12px"><a href="tel:+1{{PHONE_TEL}}" style="color:#fff;font-family:var(--font-heading);font-weight:600">{{PHONE_DISPLAY}}</a></p>
-      <p><a href="mailto:{{EMAIL}}" style="color:#9fb6c4">{{EMAIL}}</a></p>
+    <div><!-- PER-CLIENT IMAGE: replace at build --><img class="logo-foot" src="images/logo-footer.webp" alt="Bluebonnet Water Filtration" alt="Bluebonnet Water Filtration" style="background:#fff;border-radius:10px;padding:10px">
+      <p class="fabout">Whole-home water filtration, softening, and RO drinking water across Dallas-Fort Worth. Transparent pricing, local install, no in-home sales pitch.</p>
+
+      <p style="margin-top:12px"><a href="tel:+18176324222" style="color:#fff;font-family:var(--font-heading);font-weight:600">817-632-4222</a></p>
+      <p><a href="mailto:contact@bluebonnetwaterfiltration.com" style="color:#9fb6c4">contact@bluebonnetwaterfiltration.com</a></p>
     </div>
     <div><h4>Services</h4><a href="services/whole-home-filtration.html">Whole-Home Filtration</a><a href="services/reverse-osmosis.html">Reverse Osmosis</a><!-- OPTIONAL: Well water content. Remove if client serves municipal water only. --><!-- END OPTIONAL --><a href="services.html">All Services</a></div>
     <div><h4>Service Area</h4>
@@ -280,13 +281,13 @@ footer a:hover{color:#fff}
     <div><h4>Company</h4>
       <a href="about.html">About</a>
       <a href="index.html#reviews">Reviews</a>
-      <a href="{{GBP_URL}}" target="_blank" rel="noopener">Leave a Review</a>
-      <a href="water-assessment.html">Free Water Assessment</a>
-      <a href="tel:+1{{PHONE_TEL}}">Call Us</a></div>
+      <a href="#" target="_blank" rel="noopener">Leave a Review</a>
+      <a href="water-assessment.html">Get Your Free Water Test</a>
+      <a href="tel:+18176324222">Call Us</a></div>
   </div>
   <div class="fbottom">
-    <span>&copy; 2026 {{LEGAL_NAME}} &middot; {{CITY}}, {{STATE}}</span>
+    <span>&copy; 2026 Bluebonnet Water Filtration</span>
     <span><a href="privacy-policy.html" style="color:#9fb6c4">Privacy Policy</a> &middot; <a href="terms-of-service.html" style="color:#9fb6c4">Terms of Service</a></span>
-    <span>Licensed &amp; insured &middot; NSF-certified equipment</span>
+    <span>NSF-certified equipment &middot; Insured</span>
   </div>
-</div></footer><script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="{{CHAT_WIDGET_ID}}" data-source="WEB_USER"></script></body></html>
+</div></footer><!-- GHL: chat widget embed (widget ID not yet assigned, insert before Push 2) --></body></html>
