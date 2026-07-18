@@ -55,6 +55,27 @@ Expected result: every line starts with `200`. Any non-200 means the file is mis
 
 ---
 
-## The Build Is Not Done Until All Three Pass
+## Check D: Img Tag Integrity
 
-Do not hand off, announce, or mark complete until A, B, and C all pass on the deployed draft URL.
+No `<img` tag may contain duplicate attributes or injected HTML comments inside the tag opener. Run from the site root:
+
+```bash
+# Detect duplicate alt, duplicate loading, or comments injected inside <img
+grep -rn 'alt="[^"]*" alt=\|loading="lazy"[^>]*loading="lazy"\|<img<!--' \
+  --include="*.html" . | grep -v node_modules | grep -v ".netlify"
+```
+
+Expected result: zero matches. Any hit means a malformed tag that browsers may misparse.
+
+After deploying the draft, also visually spot-check the homepage and the RO page for:
+- Hero image rendering (not showing HTML comment text as visible content)
+- RO faucet grid (four images visible, no raw attribute text on screen)
+- Footer logo rendering in every page type
+
+If any raw HTML syntax (`alt=`, `src=`, `<!--`, `loading=`) appears as visible page text, a tag is still broken. Fix in source, re-commit, re-deploy.
+
+---
+
+## The Build Is Not Done Until All Four Pass
+
+Do not hand off, announce, or mark complete until A, B, C, and D all pass on the deployed draft URL.
