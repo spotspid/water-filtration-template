@@ -8,6 +8,7 @@ Every site built from this template is listed here. Each future build appends it
 | bluebonnet-water-filtration | bluebonnet-water-filtration | https://draft--bluebonnet-water-filtration.netlify.app | DRAFT | No custom domain yet |
 | gateway-water-systems | gateway-water-systems | https://draft--gateway-water-systems.netlify.app | DRAFT | GBP pending, A2P undecided, GHL IDs pending Push 2. Legal entity TBC (assumed DBA). |
 | michigan-water-pros | NOT YET CREATED | n/a | LIVE | No .netlify/state.json on this machine -- treat as LIVE, commit only, do not deploy without explicit approval |
+| heartland-home-co | polite-lollipop-5240d0 | https://draft--polite-lollipop-5240d0.netlify.app | DRAFT | Cleaning vertical (not water). Colin, Des Moines IA. GHL form ID pending. Custom domain: heartlandhomeco.com. |
 | peachtree-water-pros | peachtree-water-pros | https://draft--peachtree-water-pros.netlify.app | DRAFT | No custom domain yet |
 | gold-coast-water-pros | gold-coast-water-pros | https://draft--gold-coast-water-pros.netlify.app | DRAFT | No custom domain yet. A2P opt-in path UNDECIDED - lock before Push 3. GHL form/widget IDs pending Push 2. |
 
