@@ -2,6 +2,23 @@
 
 Stripped from Michigan Water Pros (michiganwaterpros.com) on 2026-07-10.
 
+## CRITICAL RULE: No Real Client Photos in the Template
+
+**Real client photos (headshots, avatars, portraits) NEVER enter the template repo.**
+
+The `images/owner-headshot.webp` committed here is a generated silhouette graphic (blue gradient, abstract head/body shapes, 400x400, ~2KB). It is not a photograph of any person.
+
+At build time, the builder drops the client's real headshot directly into the client site folder. It never passes through the template. If you find a photograph in `_templates/water-filtration/images/`, remove it immediately and replace it with the generated silhouette. Committing a real photo into the template risks it propagating to every future site built from this repo.
+
+To verify the current default is the silhouette and not a real photo:
+- File: `images/owner-headshot.webp`
+- Expected size: ~1,970 bytes
+- Expected MD5: `76b7075b52768dad30fe51f255d0458a`
+
+If the size is significantly larger or the hash differs, the silhouette has been replaced. Revert it.
+
+---
+
 ## CRITICAL RULE: Remote Hygiene
 
 **The template repo is NEVER a remote of any client site folder.**
