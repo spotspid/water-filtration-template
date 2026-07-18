@@ -128,11 +128,27 @@ Canonical icon assignments in this template (change only if the card content cha
 
 Verify any icon name at lucide.dev before assigning to a new card.
 
+## Build Gates (apply throughout every build)
+
+### GATE: ASSET IDENTITY
+
+Every client-provided file (logo, headshot, photos) must be named with the client slug before entering `images/` (e.g. `blue-line-owner-headshot.jpg`). The build prompt renames at intake and REFUSES to wire in any people-photo whose filename lacks the client slug. Unidentifiable photo = silhouette default + flag, never a guess.
+
+### GATE: PROVENANCE
+
+Nothing becomes a source of truth (git seed, template content, published fact) without verification against its origin: folders verify against deploy artifacts or live sites, remotes verify with `git remote -v`, platform claims verify against live documentation, financing and credentials verify against the client or stay generic/HELD.
+
+### GATE: SUSPICIOUS PASS
+
+Any verification that passes trivially (zero tokens to check, zero files to compare) is treated as a failure signal and investigated, not celebrated.
+
+---
+
 ## Build Steps (every new site)
 
 1. **Verify remote hygiene** -- Run `git remote -v` and confirm origin is the client's own `[slug]-website` repo, NOT the template. See CRITICAL RULE above.
 2. **Fill all `{{TOKEN}}` values** -- Token Reference table above; search for remaining `{{` before deploy.
-3. **Supply per-client images** -- Drop `logo.webp`, `logo-footer.webp`, and `owner-headshot.webp` into `images/`. The default stock images (hero-water, equipment-tank, ro-stage-*, lifestyle-*) are already committed. Replace with real photos when available. See `images/README.md` for the full slot table.
+3. **Supply per-client images** -- Rename each client-provided file with the client slug before placing it in `images/` (GATE: ASSET IDENTITY). Drop `logo.webp`, `logo-footer.webp`, and `owner-headshot.webp` into `images/`. Any people-photo without the client slug in its source filename gets the silhouette default instead. The default stock images (hero-water, equipment-tank, ro-stage-*, lifestyle-*) are already committed. See `images/README.md` for the full slot table.
 4. **Generate favicons** -- Edit `DROP_PATH` and fill color in `gen-favicons.mjs` to match the client's primary mark (one bold shape, 70% of a 100x100 viewBox). Never crop from the full logo raster -- a narrow crop fails at 16px. Then run:
    ```
    node gen-favicons.mjs
@@ -142,7 +158,7 @@ Verify any icon name at lucide.dev before assigning to a new card.
 6. **Fill A2P opt-in path** -- Choose CHAT WIDGET or WEB FORM and configure per the A2P section above.
 7. **Create city pages** -- Duplicate `service-area/city-template.html` per city, rename to CITY_SLUG.html, fill tokens. Then **DELETE `service-area/city-template.html`** from the client folder before deploying -- it must never go live.
 8. **Update sitemap** -- Replace `{{DOMAIN}}` and add city page URLs.
-9. **Run BUILD-VERIFY** -- See BUILD-VERIFY.md. The build is not done until all three checks pass on the deployed draft URL.
+9. **Run BUILD-VERIFY** -- See BUILD-VERIFY.md. The build is not done until all four checks pass on the deployed draft URL.
 
 ## Image Path Standard
 
