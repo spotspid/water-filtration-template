@@ -195,6 +195,29 @@ Stock images committed to `images/` are sourced from Pexels and Unsplash under t
 - FAQ section with FAQPage schema is required on homepage. Update Q/A content per client.
 - City landing pages: duplicate city-template.html per city, rename to CITY_SLUG.html, fill {{CITY_NAME}}, {{CITY_SLUG}}, {{CITY_LOCAL_CONTENT}}.
 
+## Fingerprint List (Deployed Clients)
+
+Run this grep before any new build to ensure no prior client data bleeds into the new site:
+
+```
+grep -ri "blue.line\|bluelinewaterfiltration\|bluebonnet\|gateway.water\|michigan.water\|heartland.home\|peachtree.water\|gold.coast.water\|liberty.water\|libertywatersystems\|267-855-4258\|Philadelphia.*water\|Cherry Hill.*water\|cherry-hill.*water" . --include="*.html" --include="*.xml" --include="*.txt" --exclude-dir=node_modules
+```
+
+Expected result: zero matches. Any hit means prior client content leaked into the template or a new client folder.
+
+| Client | City | Phone | Domain | Cities |
+|--------|------|-------|--------|--------|
+| Blue Line Water Filtration | Metro Detroit, MI | — | bluelinewaterfiltration.com | Metro Detroit area |
+| Bluebonnet Water Filtration | Texas | — | — | TX cities |
+| Gateway Water Systems | — | — | — | — |
+| Michigan Water Pros | Michigan | — | michiganwaterpros.com | MI cities |
+| Heartland Home Co | Des Moines, IA | — | heartlandhomeco.com | IA cities |
+| Peachtree Water Pros | Georgia | — | — | GA cities |
+| Gold Coast Water Pros | — | — | — | — |
+| Liberty Water Systems | Philadelphia, PA + South Jersey | 267-855-4258 | libertywatersystems.com | Philadelphia PA; Cherry Hill, Collingswood, Deptford, Haddonfield, Maple Shade, Marlton, Medford, Moorestown, Mount Laurel, Voorhees, Washington Township NJ |
+
+---
+
 ## Provenance Note
 
 The Bluebonnet Water Filtration build (2026-07-16, commits e6f96a7 through 1efa182) was incorrectly pushed into this template repo via a wrong remote. The template was decontaminated on 2026-07-18 by re-tokenizing all Bluebonnet-specific values. Structural improvements from that build (CSS layout, nav, band structure, legal pages) were preserved. Color and font values, company data, and all client copy were restored to tokens.
