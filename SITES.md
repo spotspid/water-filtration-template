@@ -12,6 +12,7 @@ Every site built from this template is listed here. Each future build appends it
 | peachtree-water-pros | peachtree-water-pros | https://draft--peachtree-water-pros.netlify.app | DRAFT | No custom domain yet |
 | gold-coast-water-pros | gold-coast-water-pros | https://draft--gold-coast-water-pros.netlify.app | DRAFT | No custom domain yet. A2P opt-in path UNDECIDED - lock before Push 3. GHL form/widget IDs pending Push 2. |
 | liberty-water-systems | liberty-water-systems | https://draft--liberty-water-systems.netlify.app | DRAFT | Two-state footprint (PA + NJ). No dollar amounts site-wide. No licensure claims. GHL form ID pending Push 2. GBP URL pending. A2P UNDECIDED. City list assumed — Steve to confirm. Custom domain: libertywatersystems.com |
+| heartland-water-filtration | heartland-water-filtration | https://draft--heartland-water-filtration.netlify.app | DRAFT | Water filtration, Greater Cincinnati OH. Metro-only, no city pages. Brand kit pending. |
 
 ## Clone commands for any missing repos
 
