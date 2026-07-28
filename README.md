@@ -205,6 +205,18 @@ grep -ri "blue.line\|bluelinewaterfiltration\|bluebonnet\|gateway.water\|michiga
 
 Expected result: zero matches. Any hit means prior client content leaked into the template or a new client folder.
 
+### Equipment-Spec Terms (water vertical)
+
+The template carries MWP-specific equipment brand names and certification claims that must be stripped or verified before deploy for any new client. Run this additional grep on every new build:
+
+```
+grep -ri "Jacobi\|ResinTech\|CG10\|WQA\|ceramic disc valve\|400-year\|lifetime warranty\|NSF-certified\|name-brand\|same factory\|same grade as\|same components as" . --include="*.html" --include="*.xml" --exclude-dir=node_modules
+```
+
+Expected result: zero matches, OR every hit is backed by verified client-specific documentation (supplier spec sheet or certification letter on file). Any unverified hit is an unverified equipment claim and must be genericized to function-based copy before deploy.
+
+These terms leaked from MWP's product spec into the Gateway Water Systems build (discovered 2026-07-28). They are NOT generic template claims -- they describe specific MWP-sourced components that may differ from what the next client actually installs.
+
 | Client | City | Phone | Domain | Cities |
 |--------|------|-------|--------|--------|
 | Blue Line Water Filtration | Metro Detroit, MI | — | bluelinewaterfiltration.com | Metro Detroit area |
