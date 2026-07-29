@@ -233,3 +233,27 @@ These terms leaked from MWP's product spec into the Gateway Water Systems build 
 ## Provenance Note
 
 The Bluebonnet Water Filtration build (2026-07-16, commits e6f96a7 through 1efa182) was incorrectly pushed into this template repo via a wrong remote. The template was decontaminated on 2026-07-18 by re-tokenizing all Bluebonnet-specific values. Structural improvements from that build (CSS layout, nav, band structure, legal pages) were preserved. Color and font values, company data, and all client copy were restored to tokens.
+
+---
+
+## Extended W8 Fingerprint List
+
+When grepping for prior-client bleed, check this full city list in addition to the company-name and domain terms already in the Fingerprint List above.
+
+**Michigan (Blue Line / Michigan Water Pros markets):**
+Canton, Livonia, Novi, Northville, Plymouth, Farmington Hills, Farmington, Birmingham, Bloomfield Hills, West Bloomfield, Troy, Royal Oak, Berkley, Southfield, Pleasant Ridge, Lathrup Village, Beverly Hills, Bingham Farms
+
+**Georgia (Peachtree Water Pros market):**
+Fayetteville, Peachtree City, Tyrone, Brooks, Woolsey
+
+Add each new client's city list here at build time so future fleet scans cover all markets.
+
+---
+
+## Fleet Sweep Rules
+
+**Rule: Template fixes sweep all previously built sites.**
+Any correction applied to this template (CSS, copy, schema, gate logic) must be evaluated for every site already built from it in the same session. Do not fix the template in isolation and leave prior builds with the defect. Loop over SITES.md, apply the fix, commit, push, and (for DRAFT sites) deploy -- all in the same pass.
+
+**Rule: Fleet scans always git pull before grepping.**
+Before running any W5, W8, or fingerprint grep across the fleet, run `git pull` in every site folder. A grep of stale local files produces stale results. The pull-first step ensures the scan reflects the current remote state, not an out-of-date working copy.
