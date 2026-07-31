@@ -257,3 +257,29 @@ Any correction applied to this template (CSS, copy, schema, gate logic) must be 
 
 **Rule: Fleet scans always git pull before grepping.**
 Before running any W5, W8, or fingerprint grep across the fleet, run `git pull` in every site folder. A grep of stale local files produces stale results. The pull-first step ensures the scan reflects the current remote state, not an out-of-date working copy.
+
+---
+
+## Slot Comment Rule
+
+An HTML comment (`<!-- ... -->`) cannot live inside an attribute value. `<a href="mailto:<!-- EMAIL SLOT -->">` is malformed HTML.
+
+**Correct pattern:** when a value (email, phone, URL) is not yet known, remove the entire containing element and place the comment as a sibling node marking the spot.
+
+```html
+<!-- BAD: comment inside attribute value (malformed) -->
+<a href="mailto:<!-- EMAIL SLOT -->">Email us</a>
+
+<!-- GOOD: element removed; comment marks the slot as a sibling node -->
+<!-- EMAIL SLOT: paste <a href="mailto:contact@example.com">contact@example.com</a> here when email is confirmed -->
+```
+
+This rule applies to any attribute: `href`, `src`, `action`, `data-*`, etc. If the value is unknown, remove the attribute or its containing element entirely until the value is ready.
+
+---
+
+## Equipment-Spec Removal Note (2026-07-31)
+
+The following MWP-specific terms were present in the Michigan Water Pros source copy and persisted into the template through early fleet builds: Jacobi, ResinTech, CG10, WQA Gold Seal, ceramic disc valve, lifetime warranty, 400-year, NSF, EnPress, simulated life, name-brand, same factory.
+
+All were stripped and replaced with neutral capability language on 2026-07-31. Future builds start from a clean baseline. The equipment-spec grep in the Fingerprint List section above should return zero hits against any freshly cloned build before client-specific docs are added.
