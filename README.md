@@ -55,7 +55,7 @@ Pushing client content into the template repo contaminates the token set for eve
 | {{ABOUT_COPY}} | About section paragraphs (2-4 sentences, owner voice) |
 | {{GHL_FORM_ID}} | GoHighLevel form ID |
 | {{CHAT_WIDGET_ID}} | GoHighLevel chat widget ID |
-| {{GBP_URL}} | Google Business Profile URL |
+| {{GBP_URL}} | Google Business Profile review URL. Used in the "Leave a Review" footer link on every page. If the client has no GBP listing yet, delete the entire `<a>` element -- do not leave `href="#"`. |
 | {{CITY_NAME}} | City name for city pages (e.g. "Novi") |
 | {{CITY_SLUG}} | URL slug for city (e.g. "novi") |
 | {{CITY_LOCAL_CONTENT}} | 1-2 sentences specific to the city water quality or local context |
@@ -262,6 +262,8 @@ Before running any W5, W8, or fingerprint grep across the fleet, run `git pull` 
 
 ## Slot Comment Rule
 
+**Rule:** Never place a comment inside an `href`, `src`, or any attribute value. When a value is missing, delete the entire element or attribute and place the marker comment as a sibling node.
+
 An HTML comment (`<!-- ... -->`) cannot live inside an attribute value. `<a href="mailto:<!-- EMAIL SLOT -->">` is malformed HTML.
 
 **Correct pattern:** when a value (email, phone, URL) is not yet known, remove the entire containing element and place the comment as a sibling node marking the spot.
@@ -275,6 +277,10 @@ An HTML comment (`<!-- ... -->`) cannot live inside an attribute value. `<a href
 ```
 
 This rule applies to any attribute: `href`, `src`, `action`, `data-*`, etc. If the value is unknown, remove the attribute or its containing element entirely until the value is ready.
+
+### Missing GBP URL
+
+If `{{GBP_URL}}` is not yet available at build time, delete the entire "Leave a Review" `<a>` element from every page footer. Do not leave `href="#"` -- a dead link is worse than no link.
 
 ---
 
