@@ -8,10 +8,12 @@ Run from the site root directory after deploying to the draft alias.
 ## Check A: Zero Unfilled Tokens
 
 ```
-grep -r "{{" . --include="*.html" --include="*.xml" --include="*.txt" --exclude-dir=node_modules
+grep -r "{{" . --include="*.html" --include="*.xml" --include="*.txt" --include="*.mjs" --exclude-dir=node_modules
 ```
 
 Expected result: zero matches. Any `{{` hit means the build is incomplete. Stop and fill the token. A "known" hit means the wrong file is in the folder -- fix that before deploying.
+
+**Brand pass scope:** Every brand pass (hex replacement, font swap, or any token fill) must grep `.mjs`, `.json`, `.xml`, `.txt`, and `.md` files, not only `.html`. `gen-favicons.mjs` carries `{{BRAND_PRIMARY}}` and will produce a broken favicon if the token is left unfilled. Hex-only passes that target `.html` exclusively will silently leave stale colors in script files.
 
 ---
 

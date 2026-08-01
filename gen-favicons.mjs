@@ -2,7 +2,7 @@ import sharp from 'sharp';
 import toIco from 'to-ico';
 import { writeFileSync } from 'fs';
 
-// Water-drop mark: bold single shape, fill #007BC1 on white rounded-square.
+// Water-drop mark: bold single shape, fill {{BRAND_PRIMARY}} on white rounded-square.
 // ViewBox 100x100. Teardrop: tip at (50,15), semicircle center at (50,62) r=25.
 // Shape height: 15 to 87 = 72px = ~72% of canvas.
 // At 16px that is ~11.5px tall and ~8px wide - legible as a solid drop.
@@ -20,7 +20,7 @@ function makeSVG(paddingPct = 0) {
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${vb} ${vb}">
   <rect width="${vb}" height="${vb}" fill="#ffffff" rx="${rx.toFixed(1)}"/>
   <g transform="translate(${p},${p})">
-    <path d="${DROP_PATH}" fill="#007BC1"/>
+    <path d="${DROP_PATH}" fill="{{BRAND_PRIMARY}}"/>
   </g>
 </svg>`;
 }

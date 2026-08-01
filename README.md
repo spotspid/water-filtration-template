@@ -200,7 +200,7 @@ Stock images committed to `images/` are sourced from Pexels and Unsplash under t
 Run this grep before any new build to ensure no prior client data bleeds into the new site:
 
 ```
-grep -ri "blue.line\|bluelinewaterfiltration\|bluebonnet\|gateway.water\|michigan.water\|heartland.home\|peachtree.water\|gold.coast.water\|liberty.water\|libertywatersystems\|267-855-4258\|Philadelphia.*water\|Cherry Hill.*water\|cherry-hill.*water" . --include="*.html" --include="*.xml" --include="*.txt" --exclude-dir=node_modules
+grep -ri "blue.line\|bluelinewaterfiltration\|bluebonnet\|gateway.water\|michigan.water\|heartland.home\|peachtree.water\|gold.coast.water\|liberty.water\|libertywatersystems\|267-855-4258\|Philadelphia.*water\|Cherry Hill.*water\|cherry-hill.*water\|heartlandwaterfiltration\|aquapure.tampa\|barton.springs\|bartonsprings\|tap.to.table\|taptotablewater\|angulo.water\|angulowater\|coastal.pure\|coastalwaterfl\|kings.peak\|kingspeakcleaning\|sunshine.water.pros\|sunshinewaterpros\|four.streams\|fourstreamswater\|west.mi.water\|westmiwaterfiltration\|Taylor.Dever" . --include="*.html" --include="*.xml" --include="*.txt" --exclude-dir=node_modules
 ```
 
 Expected result: zero matches. Any hit means prior client content leaked into the template or a new client folder.
@@ -227,6 +227,16 @@ These terms leaked from MWP's product spec into the Gateway Water Systems build 
 | Peachtree Water Pros | Georgia | — | — | GA cities |
 | Gold Coast Water Pros | — | — | — | — |
 | Liberty Water Systems | Philadelphia, PA + South Jersey | 267-855-4258 | libertywatersystems.com | Philadelphia PA; Cherry Hill, Collingswood, Deptford, Haddonfield, Maple Shade, Marlton, Medford, Moorestown, Mount Laurel, Voorhees, Washington Township NJ |
+| Heartland Water Filtration | Cincinnati, OH | — | heartlandwaterfiltration.com | Cincinnati area |
+| AquaPure Tampa | Tampa, FL | — | — | Tampa Bay area |
+| Barton Springs Water | Austin, TX | — | — | Austin TX area |
+| Tap to Table Water | — | — | — | — |
+| Angulo Water Solutions | Tampa Bay, FL | — | — | Tampa Bay FL |
+| Coastal Pure Water | Florida | — | — | FL coast |
+| Kings Peak Cleaning | Utah | — | — | UT (cleaning vertical) |
+| Sunshine Water Pros | Florida | — | — | FL |
+| Four Streams Water | — | — | — | — |
+| West Michigan Water Filtration | Holland, MI | — | — | Holland, Grand Haven, Zeeland, Hudsonville MI |
 
 ---
 
@@ -245,6 +255,18 @@ Canton, Livonia, Novi, Northville, Plymouth, Farmington Hills, Farmington, Birmi
 
 **Georgia (Peachtree Water Pros market):**
 Fayetteville, Peachtree City, Tyrone, Brooks, Woolsey
+
+**West Michigan (West Michigan Water Filtration market):**
+Holland, Grand Haven, Zeeland, Hudsonville
+
+**Cincinnati OH (Heartland Water Filtration market):**
+Add city list at build time.
+
+**Tampa Bay FL (AquaPure Tampa / Angulo Water Solutions market):**
+Add city list at build time.
+
+**Austin TX (Barton Springs Water market):**
+Add city list at build time.
 
 Add each new client's city list here at build time so future fleet scans cover all markets.
 
@@ -289,3 +311,14 @@ If `{{GBP_URL}}` is not yet available at build time, delete the entire "Leave a 
 The following MWP-specific terms were present in the Michigan Water Pros source copy and persisted into the template through early fleet builds: Jacobi, ResinTech, CG10, WQA Gold Seal, ceramic disc valve, lifetime warranty, 400-year, NSF, EnPress, simulated life, name-brand, same factory.
 
 All were stripped and replaced with neutral capability language on 2026-07-31. Future builds start from a clean baseline. The equipment-spec grep in the Fingerprint List section above should return zero hits against any freshly cloned build before client-specific docs are added.
+
+---
+
+## Template Changelog
+
+Every template commit appends one line: date, SHA, what changed, which client thread originated the change.
+
+| Date | SHA | Change | Thread |
+|------|-----|--------|--------|
+| 2026-07-31 | fa81e6c | Stripped equipment specs (Jacobi, ResinTech, CG10, NSF, WQA, EnPress, ceramic disc valve, 400-year, lifetime warranty) across all HTML; replaced with neutral function-based language | MWP fleet audit |
+| 2026-08-01 | cb104cc | Deleted free-water-report.html; wired {{GBP_URL}} token into footer across all pages | Fleet assessment-language audit |
