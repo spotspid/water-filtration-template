@@ -322,3 +322,4 @@ Every template commit appends one line: date, SHA, what changed, which client th
 |------|-----|--------|--------|
 | 2026-07-31 | fa81e6c | Stripped equipment specs (Jacobi, ResinTech, CG10, NSF, WQA, EnPress, ceramic disc valve, 400-year, lifetime warranty) across all HTML; replaced with neutral function-based language | MWP fleet audit |
 | 2026-08-01 | cb104cc | Deleted free-water-report.html; wired {{GBP_URL}} token into footer across all pages | Fleet assessment-language audit |
+| 2026-08-01 | 24dfad7 | B1-B5: remove Metro Detroit city names; neutralize same-week/availability promises; tokenize gen-favicons.mjs fill to {{BRAND_PRIMARY}}; expand BUILD-VERIFY.md brand pass scope to .mjs; add W8 fingerprints for 10 missing fleet sites + West Michigan | Fleet sweep / template backport |
