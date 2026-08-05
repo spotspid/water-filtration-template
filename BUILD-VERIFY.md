@@ -78,6 +78,14 @@ If any raw HTML syntax (`alt=`, `src=`, `<!--`, `loading=`) appears as visible p
 
 ---
 
-## The Build Is Not Done Until All Four Pass
+---
 
-Do not hand off, announce, or mark complete until A, B, C, and D all pass on the deployed draft URL.
+## Check E: Nothing Outside the Site File Set Is Served
+
+Check E - nothing outside the site file set is served. After deploy, fetch README.md, SITES.md, BUILD-VERIFY.md, package.json, package-lock.json, and every .mjs, .js, .py, .toml, .txt, and .md file present at the repo root. Every one must return 404. A 200 on any of them fails the build. This check exists because the other four checks confirm that intended things work and none confirm that unintended things are absent.
+
+---
+
+## The Build Is Not Done Until All Five Pass
+
+Do not hand off, announce, or mark complete until A, B, C, D, and E all pass on the deployed draft URL.

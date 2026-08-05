@@ -158,7 +158,8 @@ Any verification that passes trivially (zero tokens to check, zero files to comp
 6. **Fill A2P opt-in path** -- Choose CHAT WIDGET or WEB FORM and configure per the A2P section above.
 7. **Create city pages** -- Duplicate `service-area/city-template.html` per city, rename to CITY_SLUG.html, fill tokens. Then **DELETE `service-area/city-template.html`** from the client folder before deploying -- it must never go live.
 8. **Update sitemap** -- Replace `{{DOMAIN}}` and add city page URLs.
-9. **Run BUILD-VERIFY** -- See BUILD-VERIFY.md. The build is not done until all four checks pass on the deployed draft URL.
+9. **Run build.py, then deploy** -- Always run `python build.py` before every `netlify deploy`. The script populates `dist/` with site-deliverable files only. Netlify reads `netlify.toml` and deploys from `dist/` automatically; the repo root is never the deploy directory. Governance and tooling files (README.md, SITES.md, BUILD-VERIFY.md, build.py, gen-*.mjs, package.json, package-lock.json, netlify.toml, .gitignore) must never appear in `dist/` and must never be served publicly.
+10. **Run BUILD-VERIFY** -- See BUILD-VERIFY.md. The build is not done until all five checks pass on the deployed draft URL.
 
 ## Image Path Standard
 
