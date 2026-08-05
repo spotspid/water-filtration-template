@@ -30,7 +30,7 @@ images_src = os.path.join(SITE_ROOT, 'images')
 images_dst = os.path.join(DIST, 'images')
 os.makedirs(images_dst, exist_ok=True)
 for f in os.listdir(images_src):
-    if f == 'README.md':
+    if f.endswith('.md'):
         continue
     src = os.path.join(images_src, f)
     if os.path.isfile(src):
