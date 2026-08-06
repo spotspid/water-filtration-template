@@ -1,7 +1,25 @@
 # BUILD-VERIFY: Mandatory End-of-Build Checklist
 
-Every site build must pass all three checks before it is considered done.
-Run from the site root directory after deploying to the draft alias.
+Every site build must pass all five checks before it is considered done.
+
+---
+
+## Step 0: Build dist/ and Deploy (Required Before Every Check)
+
+**Run this before every check and before every deploy.**
+
+1. Populate `dist/` with the current session's site files:
+   ```
+   python build.py
+   ```
+2. Deploy to the draft alias from `dist/`, not from the site root:
+   ```
+   netlify deploy --dir dist --alias draft
+   ```
+
+**Never use `netlify deploy --dir .`** — deploying from the site root exposes build-tool files, config files, and README to the CDN. The `netlify.toml` publish directory is `dist`; every deploy must honor it. Check E is meaningless if the deploy used the wrong source directory.
+
+Run all checks below from the site root after completing Step 0.
 
 ---
 
@@ -41,7 +59,7 @@ git ls-files --error-unmatch favicon.ico && echo "OK: favicon.ico" || echo "MISS
 
 ## Check C: Every Image URL Returns 200 After Deploy
 
-After `netlify deploy --alias draft`, substitute your draft URL below and run:
+After `netlify deploy --dir dist --alias draft`, substitute your draft URL below and run:
 
 ```bash
 DRAFT_URL="https://draft--YOUR-SITE-NAME.netlify.app"
