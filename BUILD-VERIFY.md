@@ -4,6 +4,34 @@ Every site build must pass all five checks before it is considered done.
 
 ---
 
+## Gate Enumeration Rule
+
+**Gate file enumeration must never use `git ls-files`.**
+
+When `git ls-files "*.html"` runs in a shell where the working directory is not the git repo (the shell's cwd resets silently between tool calls), it returns an empty list — no error, no output, no indication. Any loop over that list iterates zero times, reports zero hits, and the gate passes trivially. The same silent false-clean risk applies to `grep -r "{{" .` or any command that enumerates from `.`: if cwd is wrong, it scans nothing.
+
+**Every gate that scans files must:**
+1. Use `Get-ChildItem -Recurse` with an **explicit absolute path** — never `.` or a relative path.
+2. Exclude `dist\` and `node_modules\` explicitly.
+3. Print the number of files and the total number of lines scanned alongside every hit count.
+4. **A gate reporting zero hits with zero lines scanned is a FAILURE, not a pass. Stop and diagnose — do not treat it as clean.**
+
+**Correct command pattern (PowerShell — immune to cwd reset):**
+```powershell
+$site = "C:\Sites\your-client-site"  # Replace with the absolute path to the client folder
+$htmlFiles = Get-ChildItem -Recurse -Include "*.html" -Path $site |
+    Where-Object { $_.FullName -notmatch '\\dist\\|\\node_modules\\' }
+$lineCount = ($htmlFiles | Get-Content | Measure-Object -Line).Lines
+Write-Output "Files: $($htmlFiles.Count) | Lines: $lineCount"
+$hits = $htmlFiles | ForEach-Object {
+    Select-String -Path $_.FullName -Pattern "YOUR_PATTERN" -CaseSensitive:$false
+}
+Write-Output "Hits: $($hits.Count)"
+# Zero hits with zero lines means the scan was empty — that is a FAILURE, not a clean result.
+```
+
+---
+
 ## Step 0: Build dist/ and Deploy (Required Before Every Check)
 
 **Run this before every check and before every deploy.**
@@ -37,23 +65,31 @@ Expected result: zero matches. Any `{{` hit means the build is incomplete. Stop 
 
 ## Check B: Every Image Reference Has a Committed File
 
-Run from the site root:
+Use `Get-ChildItem` with an explicit absolute path (see Gate Enumeration Rule above — `git ls-files` is forbidden here):
 
-```bash
-# List every images/ reference in HTML
-grep -rh "images/" *.html services/*.html service-area.html 2>/dev/null \
-  | grep -oE 'images/[^"'\'' >]+' | sort -u | while read f; do
-    git ls-files --error-unmatch "$f" 2>/dev/null \
-      && echo "OK: $f" || echo "MISSING (not committed): $f"
-  done
+```powershell
+$site = "C:\Sites\your-client-site"  # Replace with the absolute path to the client folder
+$htmlFiles = Get-ChildItem -Recurse -Include "*.html" -Path $site |
+    Where-Object { $_.FullName -notmatch '\\dist\\|\\node_modules\\' }
+$lineCount = ($htmlFiles | Get-Content | Measure-Object -Line).Lines
+Write-Output "Files: $($htmlFiles.Count) | Lines: $lineCount"
+$refs = $htmlFiles | ForEach-Object {
+    $content = Get-Content $_.FullName -Raw
+    [regex]::Matches($content, 'images/[^"'' >)\r\n]+') | ForEach-Object { $_.Value.Trim() }
+} | Sort-Object -Unique
+Write-Output "Image refs found: $($refs.Count)"
+foreach ($ref in $refs) {
+    $full = Join-Path $site $ref
+    if (Test-Path $full) { Write-Output "OK: $ref" } else { Write-Output "MISSING: $ref" }
+}
+if (Test-Path (Join-Path $site "favicon.ico")) {
+    Write-Output "OK: favicon.ico"
+} else {
+    Write-Output "MISSING: favicon.ico"
+}
 ```
 
-Expected result: every line starts with `OK:`. Any `MISSING` means a referenced image is not committed -- either copy the template default into the site's images/ folder and commit it, or verify the filename casing matches exactly (case-exact on Linux/Netlify CDN).
-
-Also verify favicon.ico is committed:
-```bash
-git ls-files --error-unmatch favicon.ico && echo "OK: favicon.ico" || echo "MISSING: favicon.ico"
-```
+Expected result: every line starts with `OK:`. Any `MISSING` means a referenced image is not present in the client folder — either copy the file into `images/` and commit it, or verify the filename casing matches exactly (case-exact on Linux/Netlify CDN).
 
 ---
 
@@ -104,6 +140,23 @@ Check E - nothing outside the site file set is served. After deploy, fetch READM
 
 ---
 
-## The Build Is Not Done Until All Five Pass
+## Check F: Default Template Images Must Not Ship
 
-Do not hand off, announce, or mark complete until A, B, C, D, and E all pass on the deployed draft URL.
+After the client's real logo, favicon, and headshot are committed and all HTML references updated, delete every unreferenced template default image from `images/`. These four files **must not be present in `images/` on any deployed client site**:
+
+- `owner-headshot.webp`
+- `logo.webp`
+- `logo-footer.webp`
+- `logo-og.png`
+
+Also check for other unreferenced template defaults: `equipment-ro.webp`, `lifestyle-family.webp`, `lifestyle-kitchen.webp`, `lifestyle-shower.webp`.
+
+Run the reference audit from Check B first. If any of these files IS referenced, fix the reference before deleting. Then `git rm` the unreferenced files, commit, run `python build.py`, and verify the deleted paths return 404 on the deployed draft.
+
+A client site that ships with `logo.webp` or `owner-headshot.webp` in `images/` did not complete this step.
+
+---
+
+## The Build Is Not Done Until All Six Pass
+
+Do not hand off, announce, or mark complete until A, B, C, D, E, and F all pass on the deployed draft URL.
