@@ -157,6 +157,37 @@ A client site that ships with `logo.webp` or `owner-headshot.webp` in `images/` 
 
 ---
 
-## The Build Is Not Done Until All Six Pass
+## Check G: Superlative and Absolute-Claim Compliance
 
-Do not hand off, announce, or mark complete until A, B, C, D, E, and F all pass on the deployed draft URL.
+No page may carry marketing superlatives or absolute-performance claims in copy text. Run from the client site root:
+
+```powershell
+$site = "C:\Sites\your-client-site"  # Replace with the absolute path to the client folder
+$htmlFiles = Get-ChildItem -Recurse -Include "*.html" -Path $site |
+    Where-Object { $_.FullName -notmatch '\\dist\\|\\node_modules\\' }
+$lineCount = ($htmlFiles | Get-Content | Measure-Object -Line).Lines
+Write-Output "Files: $($htmlFiles.Count) | Lines: $lineCount"
+$patterns = @("cleanest","purest","pure","safest","best","removes everything","100%","guaranteed","completely","totally","eliminates")
+foreach ($pat in $patterns) {
+    $hits = $htmlFiles | ForEach-Object { Select-String -Path $_.FullName -Pattern $pat -CaseSensitive:$false }
+    Write-Output "[$pat]: $($hits.Count) hits"
+    if ($hits.Count -gt 0) {
+        $hits | ForEach-Object { Write-Output "  $($_.Filename):$($_.LineNumber) -> $($_.Line.Trim().Substring(0,120))" }
+    }
+}
+```
+
+**Expected:** zero hits in copy text. Investigate every hit before shipping.
+
+**False positives to disregard:**
+- `100%` — produces many hits from CSS values (`max-width:100%`, `top:100%`, `width:100%` inside `<style>` blocks). Any `100%` hit on a line that is clearly CSS is not a compliance issue. Any `100%` in `<p>`, `<h1>`–`<h6>`, `<li>`, meta `content=`, or JSON-LD requires review.
+- `completely` — "commercially reasonable security measures" in the privacy policy is standard legal boilerplate, not a marketing claim.
+- `pure` / `purely` — legitimate adverbial use in legal or explanatory text is not a superlative. Review context.
+
+**Copy hits that require a fix:** `cleanest`, `purest`, `safest`, `best` (as in "best-tasting"), `removes everything`, `guaranteed`, `totally`, `eliminates` in any marketing copy (`<h1>`–`<h6>`, `<p>`, `<li>`, meta descriptions, JSON-LD descriptions, scard/pcard body text).
+
+---
+
+## The Build Is Not Done Until All Seven Pass
+
+Do not hand off, announce, or mark complete until A, B, C, D, E, F, and G all pass on the deployed draft URL.
